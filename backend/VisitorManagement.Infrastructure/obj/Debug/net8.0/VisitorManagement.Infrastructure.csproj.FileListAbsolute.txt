@@ -17,3 +17,4 @@ C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor m
 C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Infrastructure\obj\Debug\net8.0\VisitorManagement.Infrastructure.pdb
 C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Infrastructure\obj\Debug\net8.0\VisitorManagement.Infrastructure.genruntimeconfig.cache
 C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Infrastructure\obj\Debug\net8.0\ref\VisitorManagement.Infrastructure.dll
+C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Infrastructure\obj\Debug\net8.0\VisitorManagement.Infrastructure.sourcelink.json

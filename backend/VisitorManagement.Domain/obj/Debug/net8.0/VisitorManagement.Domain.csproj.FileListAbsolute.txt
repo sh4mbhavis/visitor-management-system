@@ -9,3 +9,4 @@ C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor m
 C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Domain\obj\Debug\net8.0\refint\VisitorManagement.Domain.dll
 C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Domain\obj\Debug\net8.0\VisitorManagement.Domain.pdb
 C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Domain\obj\Debug\net8.0\ref\VisitorManagement.Domain.dll
+C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Domain\obj\Debug\net8.0\VisitorManagement.Domain.sourcelink.json
