@@ -1,0 +1,11 @@
+C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Domain\bin\Debug\net8.0\VisitorManagement.Domain.deps.json
+C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Domain\bin\Debug\net8.0\VisitorManagement.Domain.dll
+C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Domain\bin\Debug\net8.0\VisitorManagement.Domain.pdb
+C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Domain\obj\Debug\net8.0\VisitorManagement.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Domain\obj\Debug\net8.0\VisitorManagement.Domain.AssemblyInfoInputs.cache
+C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Domain\obj\Debug\net8.0\VisitorManagement.Domain.AssemblyInfo.cs
+C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Domain\obj\Debug\net8.0\VisitorManagement.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Domain\obj\Debug\net8.0\VisitorManagement.Domain.dll
+C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Domain\obj\Debug\net8.0\refint\VisitorManagement.Domain.dll
+C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Domain\obj\Debug\net8.0\VisitorManagement.Domain.pdb
+C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Domain\obj\Debug\net8.0\ref\VisitorManagement.Domain.dll

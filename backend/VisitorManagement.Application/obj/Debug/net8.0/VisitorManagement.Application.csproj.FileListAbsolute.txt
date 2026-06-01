@@ -1,0 +1,15 @@
+C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Application\bin\Debug\net8.0\VisitorManagement.Application.deps.json
+C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Application\bin\Debug\net8.0\VisitorManagement.Application.dll
+C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Application\bin\Debug\net8.0\VisitorManagement.Application.pdb
+C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Application\bin\Debug\net8.0\VisitorManagement.Domain.dll
+C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Application\bin\Debug\net8.0\VisitorManagement.Domain.pdb
+C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Application\obj\Debug\net8.0\VisitorManagement.Application.csproj.AssemblyReference.cache
+C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Application\obj\Debug\net8.0\VisitorManagement.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Application\obj\Debug\net8.0\VisitorManagement.Application.AssemblyInfoInputs.cache
+C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Application\obj\Debug\net8.0\VisitorManagement.Application.AssemblyInfo.cs
+C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Application\obj\Debug\net8.0\VisitorManagement.Application.csproj.CoreCompileInputs.cache
+C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Application\obj\Debug\net8.0\VisitorM.1B35BF2A.Up2Date
+C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Application\obj\Debug\net8.0\VisitorManagement.Application.dll
+C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Application\obj\Debug\net8.0\refint\VisitorManagement.Application.dll
+C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Application\obj\Debug\net8.0\VisitorManagement.Application.pdb
+C:\Users\Sushant Shekhar\OneDrive - Amity University\Desktop\shambhavi\visitor management system\backend\VisitorManagement.Application\obj\Debug\net8.0\ref\VisitorManagement.Application.dll

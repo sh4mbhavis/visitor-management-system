@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="VisitorManagement.Api/VisitorManagement.Api.csproj" />
+  <Project Path="VisitorManagement.Application/VisitorManagement.Application.csproj" />
+  <Project Path="VisitorManagement.Domain/VisitorManagement.Domain.csproj" />
+  <Project Path="VisitorManagement.Infrastructure/VisitorManagement.Infrastructure.csproj" />
+</Solution>
