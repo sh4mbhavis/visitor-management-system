@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using VisitorManagement.Application.DTOs.Approval;
 using VisitorManagement.Application.Interfaces;
@@ -6,6 +7,7 @@ namespace VisitorManagement.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize(Roles = "Admin,Faculty")]
 public sealed class ApprovalsController : ControllerBase
 {
     private readonly IApprovalService _approvalService;
@@ -25,16 +27,28 @@ public sealed class ApprovalsController : ControllerBase
     [HttpPost("{visitId:int}/approve")]
     public async Task<ActionResult<ApprovalDto>> Approve(int visitId, [FromBody] CreateApprovalDto dto)
     {
-        if (visitId != dto.VisitId) return BadRequest("Visit ID mismatch.");
+        if (visitId != dto.VisitId)
+            return BadRequest("Visit ID mismatch.");
+
         var approval = await _approvalService.ApproveAsync(dto);
-        return CreatedAtAction(nameof(GetByVisitId), new { visitId = dto.VisitId }, approval);
+
+        return CreatedAtAction(
+            nameof(GetByVisitId),
+            new { visitId = dto.VisitId },
+            approval);
     }
 
     [HttpPost("{visitId:int}/reject")]
     public async Task<ActionResult<ApprovalDto>> Reject(int visitId, [FromBody] CreateApprovalDto dto)
     {
-        if (visitId != dto.VisitId) return BadRequest("Visit ID mismatch.");
+        if (visitId != dto.VisitId)
+            return BadRequest("Visit ID mismatch.");
+
         var approval = await _approvalService.RejectAsync(dto);
-        return CreatedAtAction(nameof(GetByVisitId), new { visitId = dto.VisitId }, approval);
+
+        return CreatedAtAction(
+            nameof(GetByVisitId),
+            new { visitId = dto.VisitId },
+            approval);
     }
 }

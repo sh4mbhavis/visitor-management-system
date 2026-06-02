@@ -4,11 +4,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using VisitorManagement.Application.DTOs.Auth;
 using VisitorManagement.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace VisitorManagement.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+
 public sealed class AuthController : ControllerBase
 {
     private readonly IAuthService _authService;
@@ -17,7 +19,7 @@ public sealed class AuthController : ControllerBase
     {
         _authService = authService;
     }
-
+ [AllowAnonymous]
     [HttpPost("login")]
     public async Task<ActionResult<LoginResponseDto>> Login(
         [FromBody] LoginRequestDto dto,

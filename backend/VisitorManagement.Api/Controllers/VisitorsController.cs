@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using VisitorManagement.Application.DTOs.Visitor;
 using VisitorManagement.Application.Interfaces;
@@ -7,6 +8,7 @@ namespace VisitorManagement.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public sealed class VisitorsController : ControllerBase
 {
     private readonly IVisitorService _visitorService;
