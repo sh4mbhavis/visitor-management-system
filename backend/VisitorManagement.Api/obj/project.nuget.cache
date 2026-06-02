@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7QO1XrFkmC4=",
+  "dgSpecHash": "TXolKDR/yM0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Sushant Shekhar\\OneDrive - Amity University\\Desktop\\shambhavi\\visitor management system\\backend\\VisitorManagement.Api\\VisitorManagement.Api.csproj",
+  "projectFilePath": "C:\\Users\\Sushant Shekhar\\OneDrive - Amity University\\Desktop\\shambhavi\\visitor management system\\backend\\Visitormanagement.Api\\VisitorManagement.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sushant Shekhar\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Sushant Shekhar\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
@@ -61,10 +61,10 @@
     "C:\\Users\\Sushant Shekhar\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512",
     "C:\\Users\\Sushant Shekhar\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\Sushant Shekhar\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
-    "C:\\Users\\Sushant Shekhar\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.25\\microsoft.aspnetcore.app.ref.8.0.25.nupkg.sha512",
-    "C:\\Users\\Sushant Shekhar\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.25\\microsoft.netcore.app.host.win-x64.8.0.25.nupkg.sha512",
     "C:\\Users\\Sushant Shekhar\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.25\\microsoft.netcore.app.ref.8.0.25.nupkg.sha512",
-    "C:\\Users\\Sushant Shekhar\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.25\\microsoft.windowsdesktop.app.ref.8.0.25.nupkg.sha512"
+    "C:\\Users\\Sushant Shekhar\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.25\\microsoft.windowsdesktop.app.ref.8.0.25.nupkg.sha512",
+    "C:\\Users\\Sushant Shekhar\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.25\\microsoft.aspnetcore.app.ref.8.0.25.nupkg.sha512",
+    "C:\\Users\\Sushant Shekhar\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.25\\microsoft.netcore.app.host.win-x64.8.0.25.nupkg.sha512"
   ],
   "logs": []
 }

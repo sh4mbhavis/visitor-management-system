@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Sushant Shekhar\\OneDrive - Amity University\\Desktop\\shambhavi\\visitor management system\\backend\\VisitorManagement.Api\\VisitorManagement.Api.csproj": {}
+    "C:\\Users\\Sushant Shekhar\\OneDrive - Amity University\\Desktop\\shambhavi\\visitor management system\\backend\\Visitormanagement.Api\\VisitorManagement.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Sushant Shekhar\\OneDrive - Amity University\\Desktop\\shambhavi\\visitor management system\\backend\\VisitorManagement.Api\\VisitorManagement.Api.csproj": {
+    "C:\\Users\\Sushant Shekhar\\OneDrive - Amity University\\Desktop\\shambhavi\\visitor management system\\backend\\Visitormanagement.Api\\VisitorManagement.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Sushant Shekhar\\OneDrive - Amity University\\Desktop\\shambhavi\\visitor management system\\backend\\VisitorManagement.Api\\VisitorManagement.Api.csproj",
+        "projectUniqueName": "C:\\Users\\Sushant Shekhar\\OneDrive - Amity University\\Desktop\\shambhavi\\visitor management system\\backend\\Visitormanagement.Api\\VisitorManagement.Api.csproj",
         "projectName": "VisitorManagement.Api",
-        "projectPath": "C:\\Users\\Sushant Shekhar\\OneDrive - Amity University\\Desktop\\shambhavi\\visitor management system\\backend\\VisitorManagement.Api\\VisitorManagement.Api.csproj",
+        "projectPath": "C:\\Users\\Sushant Shekhar\\OneDrive - Amity University\\Desktop\\shambhavi\\visitor management system\\backend\\Visitormanagement.Api\\VisitorManagement.Api.csproj",
         "packagesPath": "C:\\Users\\Sushant Shekhar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Sushant Shekhar\\OneDrive - Amity University\\Desktop\\shambhavi\\visitor management system\\backend\\VisitorManagement.Api\\obj\\",
+        "outputPath": "C:\\Users\\Sushant Shekhar\\OneDrive - Amity University\\Desktop\\shambhavi\\visitor management system\\backend\\Visitormanagement.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Sushant Shekhar\\AppData\\Roaming\\NuGet\\NuGet.Config"
