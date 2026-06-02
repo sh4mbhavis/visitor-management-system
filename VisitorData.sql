@@ -719,3 +719,31 @@ FROM Visits
 ORDER BY NEWID();
 
  select * from FaceRecognitionLogs
+
+ SELECT @@SERVERNAME;
+
+ SELECT @@SERVERNAME AS ServerName;
+
+ SELECT VisitorId, FullName
+FROM Visitors;
+
+SELECT UserId, FullName
+FROM Users;
+
+SELECT DepartmentId, DepartmentName
+FROM Departments;
+
+select * from approvals
+
+sp_help approvals 
+
+SELECT TOP 1 *
+FROM Approvals;
+
+SELECT TOP 5 *
+FROM Users;
+
+SELECT *
+FROM Roles;
+
+sp_help
