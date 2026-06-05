@@ -1,0 +1,81 @@
+<div class="container-fluid">
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Visitors</h2>
+
+   <button
+  class="btn btn-primary"
+  routerLink="/visitors/add">
+  Add Visitor
+</button>
+  </div>
+
+  <div class="card">
+
+    <div class="card-body">
+
+        <div class="row mb-3">
+
+  <div class="col-md-4">
+
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search by name, email or mobile..."
+      [(ngModel)]="searchText"
+      (input)="search()">
+
+  </div>
+
+</div>
+
+      <table class="table table-striped">
+
+        <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Mobile</th>
+    <th>Gender</th>
+    <th>ID Proof</th>
+    <th>Actions</th>
+  </tr>
+</thead>
+
+        <tbody>
+
+          <tr *ngFor="let visitor of filteredVisitors">
+
+  <td>{{ visitor.visitorId }}</td>
+  <td>{{ visitor.fullName }}</td>
+  <td>{{ visitor.email }}</td>
+  <td>{{ visitor.mobile }}</td>
+  <td>{{ visitor.gender }}</td>
+  <td>{{ visitor.idProofType }}: {{ visitor.idProofNumber }}</td>
+
+  <td>
+<button
+  class="btn btn-warning btn-sm me-2"
+  [routerLink]="['/visitors/edit', visitor.visitorId]">
+  Edit
+</button>
+
+    <button
+  class="btn btn-danger btn-sm"
+  (click)="deleteVisitor(visitor.visitorId)">
+  Delete
+</button>
+  </td>
+
+</tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,21 @@
+.container-fluid {
+  background: #f4f6f9;
+  min-height: 100vh;
+}
+
+.card {
+  border-radius: 16px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card-body {
+  text-align: center;
+}
+
+h2 {
+  font-weight: 700;
+}

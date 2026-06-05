@@ -1,0 +1,122 @@
+<div class="container-fluid">
+
+  <div class="card shadow-sm">
+
+    <div class="card-header">
+      <h3>Add Visitor</h3>
+    </div>
+
+    <div class="card-body">
+
+      <form
+        [formGroup]="visitorForm"
+        (ngSubmit)="onSubmit()">
+
+        <div class="mb-3">
+          <label class="form-label">
+            Full Name
+          </label>
+
+          <input
+            type="text"
+            class="form-control"
+            formControlName="fullName">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">
+            Mobile
+          </label>
+
+          <input
+            type="text"
+            class="form-control"
+            formControlName="mobile">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">
+            Email
+          </label>
+
+          <input
+            type="email"
+            class="form-control"
+            formControlName="email">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">
+            Gender
+          </label>
+
+          <select
+            class="form-select"
+            formControlName="gender">
+
+            <option value="">
+              Select Gender
+            </option>
+
+            <option value="Male">
+              Male
+            </option>
+
+            <option value="Female">
+              Female
+            </option>
+
+            <option value="Other">
+              Other
+            </option>
+
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">
+            Address
+          </label>
+
+          <textarea
+            rows="3"
+            class="form-control"
+            formControlName="address">
+          </textarea>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">
+            ID Proof Type
+          </label>
+
+          <input
+            type="text"
+            class="form-control"
+            formControlName="idProofType">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">
+            ID Proof Number
+          </label>
+
+          <input
+            type="text"
+            class="form-control"
+            formControlName="idProofNumber">
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-primary">
+          Save Visitor
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
