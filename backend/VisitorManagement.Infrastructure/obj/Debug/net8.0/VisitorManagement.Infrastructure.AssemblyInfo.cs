@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VisitorManagement.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+06450b3454e440e4ba738e121619fe3baebe3ee4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d359610b442f6ab57d8ec671d3a04f079ebbbf70")]
 [assembly: System.Reflection.AssemblyProductAttribute("VisitorManagement.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VisitorManagement.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  ChangeDetectorRef
+} from '@angular/core';
 
 @Component({
   selector: 'app-visit-list',
@@ -8,5 +11,9 @@ import { Component } from '@angular/core';
   styleUrl: './visit-list.scss'
 })
 export class VisitListComponent {
+
+  constructor(
+    private readonly cdr: ChangeDetectorRef
+  ) {}
 
 }

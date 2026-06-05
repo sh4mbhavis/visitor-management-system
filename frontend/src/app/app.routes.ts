@@ -11,6 +11,9 @@ import { ReportListComponent } from './features/reports/report-list/report-list'
 import { UserListComponent } from './features/users/user-list/user-list';
 import { AddVisitorComponent } from './features/visitors/add-visitor/add-visitor';
 import { EditVisitorComponent } from './features/visitors/edit-visitor/edit-visitor';
+import { DepartmentListComponent } from './features/departments/department-list/department-list';
+import { AddDepartmentComponent } from './features/departments/add-department/add-department';
+import { EditDepartmentComponent } from './features/departments/edit-department/edit-department';
 
 export const routes: Routes = [
   {
@@ -33,7 +36,10 @@ export const routes: Routes = [
   path: 'visitors/edit/:id',
   component: EditVisitorComponent
 },
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: 'departments', component: DepartmentListComponent },
+{ path: 'departments/add', component: AddDepartmentComponent },
+{ path: 'departments/edit/:id', component: EditDepartmentComponent },
 ]
   },
 

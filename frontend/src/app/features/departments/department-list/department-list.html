@@ -1,0 +1,92 @@
+<div class="container-fluid">
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+
+    <h2>Departments</h2>
+
+    <button
+      class="btn btn-primary"
+      routerLink="/departments/add">
+      Add Department
+    </button>
+
+  </div>
+
+  <div class="row mb-3">
+
+    <div class="col-md-4">
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search department..."
+        [(ngModel)]="searchText"
+        (input)="search()">
+
+    </div>
+
+  </div>
+
+  <div class="card shadow-sm">
+
+    <div class="card-body">
+
+      <table class="table table-hover">
+
+        <thead>
+
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Code</th>
+            <th>Actions</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr
+            *ngFor="let department of filteredDepartments">
+
+            <td>
+              {{ department.departmentId }}
+            </td>
+
+            <td>
+              {{ department.departmentName }}
+            </td>
+
+            <td>
+              {{ department.departmentCode }}
+            </td>
+
+            <td>
+
+             <button
+  class="btn btn-warning btn-sm me-2"
+  [routerLink]="['/departments/edit', department.departmentId]">
+
+  Edit
+
+</button>
+
+              <button
+                class="btn btn-danger btn-sm"
+                (click)="deleteDepartment(department.departmentId)">
+                Delete
+              </button>
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>
