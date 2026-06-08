@@ -1,1 +1,118 @@
-<p>visit-list works!</p>
+<div class="container-fluid">
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+
+    <h2>Visits</h2>
+
+    <button
+      class="btn btn-primary"
+      routerLink="/visits/add">
+
+      Create Visit
+
+    </button>
+
+  </div>
+
+  <div class="card shadow-sm">
+
+    <div class="card-body">
+
+      <table class="table table-hover">
+
+        <thead>
+
+          <tr>
+
+            <th>ID</th>
+            <th>Visitor</th>
+            <th>Host User</th>
+            <th>Department</th>
+            <th>Purpose</th>
+            <th>Visit Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let visit of visits">
+
+            <td>
+              {{ visit.visitId }}
+            </td>
+
+            <td>
+              {{ visit.visitorFullName }}
+            </td>
+
+            <td>
+              {{ visit.hostUserFullName }}
+            </td>
+
+            <td>
+              {{ visit.departmentName }}
+            </td>
+
+            <td>
+              {{ visit.purpose }}
+            </td>
+
+            <td>
+              {{ visit.visitDate | date:'dd/MM/yyyy' }}
+            </td>
+
+            <td>
+              {{ visit.visitStatusName }}
+            </td>
+
+            <td>
+
+              <button
+                class="btn btn-success btn-sm me-2"
+                (click)="checkIn(visit.visitId)">
+
+                Check-In
+
+              </button>
+
+              <button
+                class="btn btn-secondary btn-sm me-2"
+                (click)="checkOut(visit.visitId)">
+
+                Check-Out
+
+              </button>
+
+              <button
+                class="btn btn-warning btn-sm me-2"
+                [routerLink]="['/visits/edit', visit.visitId]">
+
+                Edit
+
+              </button>
+
+              <button
+                class="btn btn-danger btn-sm"
+                (click)="deleteVisit(visit.visitId)">
+
+                Delete
+
+              </button>
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>

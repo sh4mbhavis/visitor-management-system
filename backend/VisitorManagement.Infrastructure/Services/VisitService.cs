@@ -109,7 +109,7 @@ public sealed class VisitService : IVisitService
         }
 
         visit.CheckInTime = DateTime.UtcNow;
-        visit.VisitStatusId = 2;
+visit.VisitStatusId = 4;
         visit.UpdatedAt = DateTime.UtcNow;
 
         _dbContext.Visits.Update(visit);
@@ -127,7 +127,7 @@ public sealed class VisitService : IVisitService
         }
 
         visit.CheckOutTime = DateTime.UtcNow;
-        visit.VisitStatusId = 3;
+        visit.VisitStatusId = 5;
         visit.UpdatedAt = DateTime.UtcNow;
 
         _dbContext.Visits.Update(visit);

@@ -1,0 +1,136 @@
+<div class="container">
+
+  <div class="card shadow">
+
+    <div class="card-header">
+      <h3>Create Visit</h3>
+    </div>
+
+    <div class="card-body">
+
+      <form
+        [formGroup]="visitForm"
+        (ngSubmit)="onSubmit()">
+
+        <div class="mb-3">
+
+          <label class="form-label">
+            Visitor
+          </label>
+
+          <p>Total Visitors: {{ visitors.length }}</p>
+
+          <select
+            class="form-select"
+            formControlName="visitorId">
+
+            <option value="">
+              Select Visitor
+            </option>
+
+            <option
+              *ngFor="let visitor of visitors"
+              [value]="visitor.visitorId">
+
+              {{ visitor.fullName }}
+
+            </option>
+
+          </select>
+
+        </div>
+
+        <div class="mb-3">
+
+          <label class="form-label">
+            Host User
+          </label>
+
+          <select
+            class="form-select"
+            formControlName="hostUserId">
+
+            <option value="">
+              Select Host User
+            </option>
+
+            <option
+              *ngFor="let user of users"
+              [value]="user.userId">
+
+              {{ user.fullName }}
+
+            </option>
+
+          </select>
+
+        </div>
+
+        <div class="mb-3">
+
+          <label class="form-label">
+            Department
+          </label>
+
+          <select
+            class="form-select"
+            formControlName="departmentId">
+
+            <option value="">
+              Select Department
+            </option>
+
+            <option
+              *ngFor="let department of departments"
+              [value]="department.departmentId">
+
+              {{ department.departmentName }}
+
+            </option>
+
+          </select>
+
+        </div>
+
+        <div class="mb-3">
+
+          <label class="form-label">
+            Purpose
+          </label>
+
+          <textarea
+            rows="3"
+            class="form-control"
+            formControlName="purpose">
+          </textarea>
+
+        </div>
+
+        <div class="mb-3">
+
+          <label class="form-label">
+            Visit Date
+          </label>
+
+          <input
+            type="date"
+            class="form-control"
+            formControlName="visitDate">
+
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-primary">
+
+          Create Visit
+
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>

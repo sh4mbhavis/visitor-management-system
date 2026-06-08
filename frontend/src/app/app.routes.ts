@@ -5,7 +5,7 @@ import { DashboardComponent } from './features/dashboard/dashboard/dashboard';
 import { MainLayoutComponent } from './layout/main-layout/main-layout';
 
 import { VisitorListComponent } from './features/visitors/visitor-list/visitor-list';
-import { VisitListComponent } from './features/visits/visit-list/visit-list';
+import { VisitListComponent  } from './features/visits/visit-list/visit-list';
 import { ApprovalListComponent } from './features/approvals/approval-list/approval-list';
 import { ReportListComponent } from './features/reports/report-list/report-list';
 import { UserListComponent } from './features/users/user-list/user-list';
@@ -14,6 +14,8 @@ import { EditVisitorComponent } from './features/visitors/edit-visitor/edit-visi
 import { DepartmentListComponent } from './features/departments/department-list/department-list';
 import { AddDepartmentComponent } from './features/departments/add-department/add-department';
 import { EditDepartmentComponent } from './features/departments/edit-department/edit-department';
+import { AddVisitComponent } from './features/visits/add-visit/add-visit';
+import { EditVisitComponent } from './features/visits/edit-visit/edit-visit';
 
 export const routes: Routes = [
   {
@@ -40,6 +42,9 @@ export const routes: Routes = [
   { path: 'departments', component: DepartmentListComponent },
 { path: 'departments/add', component: AddDepartmentComponent },
 { path: 'departments/edit/:id', component: EditDepartmentComponent },
+{ path: 'visits', component: VisitListComponent },
+{ path: 'visits/add', component: AddVisitComponent },
+{ path: 'visits/edit/:id', component: EditVisitComponent },
 ]
   },
 
