@@ -1,0 +1,42 @@
+.card {
+  border: none;
+  border-radius: 16px;
+}
+
+.timeline {
+  position: relative;
+}
+
+.timeline-item {
+  position: relative;
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.timeline-icon {
+  width: 50px;
+  font-size: 24px;
+  text-align: center;
+  z-index: 2;
+}
+
+.timeline-content {
+  flex: 1;
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 12px;
+  margin-left: 10px;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 24px;
+  top: 40px;
+  width: 2px;
+  height: calc(100% + 10px);
+  background: #ced4da;
+}
+
+.btn {
+  border-radius: 8px;
+}

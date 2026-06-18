@@ -1,4 +1,5 @@
 export interface Visit {
+
   visitId: number;
 
   visitorId: number;
@@ -20,5 +21,16 @@ export interface Visit {
   visitStatusId: number;
   visitStatusName: string;
 
+  gatePassNumber?: string;
+  qrCodePath?: string;
+
   approvalStatus?: string;
+
+  approvedBy?: number;
+  approvedByUserName?: string;
+
+  approvedAt?: string;
+
+  createdAt?: string;
+  updatedAt?: string;
 }

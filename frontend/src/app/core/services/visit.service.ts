@@ -61,4 +61,15 @@ export class VisitService {
       {}
     );
   }
+
+  downloadGatePass(id: number) {
+
+  return this.http.get(
+    `${this.apiUrl}/${id}/gatepass`,
+    {
+      responseType: 'blob'
+    }
+  );
+
+}
 }

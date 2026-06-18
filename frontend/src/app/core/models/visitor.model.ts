@@ -7,4 +7,10 @@ export interface Visitor {
   address: string;
   idProofType: string;
   idProofNumber: string;
+
+  createdAt?: string;
+  updatedAt?: string;
+  photoPath?: string;
+  faceEncoding?: string;
+  isBlacklisted?: boolean;
 }

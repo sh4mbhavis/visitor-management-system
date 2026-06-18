@@ -1,1 +1,221 @@
-<p>edit-visit works!</p>
+<div class="container-fluid">
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+
+
+<div>
+  <h2 class="mb-0">Edit Visit</h2>
+  <small class="text-muted">
+    Update visit request information
+  </small>
+</div>
+
+<button
+  type="button"
+  class="btn btn-outline-secondary"
+  (click)="goBack()">
+
+  ← Back
+
+</button>
+
+
+  </div>
+
+  <div class="card shadow-sm">
+
+
+<div class="card-body">
+
+  <form
+    [formGroup]="visitForm"
+    (ngSubmit)="onSubmit()">
+
+    <div class="row">
+
+      <div class="col-md-6 mb-3">
+
+        <label class="form-label">
+          Visitor *
+        </label>
+
+        <select
+          class="form-select"
+          formControlName="visitorId">
+
+          <option value="">
+            Select Visitor
+          </option>
+
+          <option
+            *ngFor="let visitor of visitors"
+            [value]="visitor.visitorId">
+
+            {{ visitor.fullName }}
+
+          </option>
+
+        </select>
+
+        <div
+          class="text-danger mt-1"
+          *ngIf="
+            visitForm.get('visitorId')?.touched &&
+            visitForm.get('visitorId')?.invalid
+          ">
+
+          Visitor is required
+
+        </div>
+
+      </div>
+
+      <div class="col-md-6 mb-3">
+
+        <label class="form-label">
+          Host User *
+        </label>
+
+        <select
+          class="form-select"
+          formControlName="hostUserId">
+
+          <option value="">
+            Select Host User
+          </option>
+
+          <option
+            *ngFor="let user of users"
+            [value]="user.userId">
+
+            {{ user.fullName }}
+
+          </option>
+
+        </select>
+
+        <div
+          class="text-danger mt-1"
+          *ngIf="
+            visitForm.get('hostUserId')?.touched &&
+            visitForm.get('hostUserId')?.invalid
+          ">
+
+          Host User is required
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-md-6 mb-3">
+
+        <label class="form-label">
+          Department *
+        </label>
+
+        <select
+          class="form-select"
+          formControlName="departmentId">
+
+          <option value="">
+            Select Department
+          </option>
+
+          <option
+            *ngFor="let department of departments"
+            [value]="department.departmentId">
+
+            {{ department.departmentName }}
+
+          </option>
+
+        </select>
+
+        <div
+          class="text-danger mt-1"
+          *ngIf="
+            visitForm.get('departmentId')?.touched &&
+            visitForm.get('departmentId')?.invalid
+          ">
+
+          Department is required
+
+        </div>
+
+      </div>
+
+      <div class="col-md-6 mb-3">
+
+        <label class="form-label">
+          Visit Date *
+        </label>
+
+        <input
+          type="date"
+          class="form-control"
+          formControlName="visitDate">
+
+        <div
+          class="text-danger mt-1"
+          *ngIf="
+            visitForm.get('visitDate')?.touched &&
+            visitForm.get('visitDate')?.invalid
+          ">
+
+          Visit Date is required
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="mb-3">
+
+      <label class="form-label">
+        Purpose
+      </label>
+
+      <textarea
+        rows="4"
+        class="form-control"
+        formControlName="purpose">
+      </textarea>
+
+    </div>
+
+    <hr>
+
+    <div class="d-flex gap-2">
+
+      <button
+        type="submit"
+        class="btn btn-primary">
+
+        Update Visit
+
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-secondary"
+        (click)="goBack()">
+
+        Cancel
+
+      </button>
+
+    </div>
+
+  </form>
+
+</div>
+
+
+  </div>
+
+</div>

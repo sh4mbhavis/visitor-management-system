@@ -1,0 +1,98 @@
+.stats-card {
+  border-radius: 18px;
+  padding: 20px;
+  color: white;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.25s ease;
+  cursor: default;
+}
+
+.stats-card:hover {
+  transform: translateY(-4px);
+}
+
+.stats-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stats-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stats-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+  margin: 8px 0;
+}
+
+.stats-icon {
+  font-size: 2.8rem;
+  opacity: 0.15;
+}
+
+.visits-card {
+  background: linear-gradient(
+    135deg,
+    #4f6fad,
+    #3b5b96
+  );
+}
+
+.approved-card {
+  background: linear-gradient(
+    135deg,
+    #3f8f73,
+    #2f6f59
+  );
+}
+
+.pending-card {
+  background: linear-gradient(
+    135deg,
+    #b58a3c,
+    #926d24
+  );
+}
+
+.checkout-card {
+  background: linear-gradient(
+    135deg,
+    #6f63a8,
+    #564b89
+  );
+}
+
+.dark-theme .stats-card {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.stats-card {
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.stats-card:hover {
+  transform: translateY(-2px);
+}
+
+.dark-theme .stats-card {
+  box-shadow: 0 4px 15px rgba(0,0,0,0.35);
+}
+
+.stats-value {
+  font-size: 2.75rem;
+  font-weight: 800;
+}
+
+.stats-label {
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}

@@ -1,23 +1,85 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
 
-import { Navbar } from './navbar';
+import { Router } from '@angular/router';
 
-describe('Navbar', () => {
-  let component: Navbar;
-  let fixture: ComponentFixture<Navbar>;
+@Component({
+  selector: 'app-navbar',
+  standalone: true,
+  imports: [],
+  templateUrl: './navbar.html',
+  styleUrl: './navbar.scss'
+})
+export class NavbarComponent
+implements OnInit {
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [Navbar]
-    })
-    .compileComponents();
+  isDarkMode = false;
 
-    fixture = TestBed.createComponent(Navbar);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  constructor(
+    private readonly router: Router
+  ) {}
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  ngOnInit(): void {
+
+    const theme =
+      localStorage.getItem(
+        'theme'
+      );
+
+    if (theme === 'dark') {
+
+      this.isDarkMode = true;
+
+      document.body.classList.add(
+        'dark-theme'
+      );
+
+    }
+
+  }
+
+  toggleTheme(): void {
+
+    this.isDarkMode =
+      !this.isDarkMode;
+
+    if (this.isDarkMode) {
+
+      document.body.classList.add(
+        'dark-theme'
+      );
+
+      localStorage.setItem(
+        'theme',
+        'dark'
+      );
+
+    } else {
+
+      document.body.classList.remove(
+        'dark-theme'
+      );
+
+      localStorage.setItem(
+        'theme',
+        'light'
+      );
+
+    }
+
+  }
+
+  logout(): void {
+
+    localStorage.removeItem('token');
+    localStorage.removeItem('role');
+
+    this.router.navigate([
+      '/login'
+    ]);
+
+  }
+
+}

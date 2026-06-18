@@ -1,80 +1,306 @@
 <div class="container-fluid">
 
   <div class="d-flex justify-content-between align-items-center mb-4">
-    <h2>Visitors</h2>
 
-   <button
+
+<div>
+  <h2 class="mb-0">Visitors</h2>
+</div>
+
+<button
   class="btn btn-primary"
   routerLink="/visitors/add">
-  Add Visitor
+
+  + Add Visitor
+
 </button>
+
+
   </div>
 
-  <div class="card">
+  <div class="card shadow-sm">
 
-    <div class="card-body">
 
-        <div class="row mb-3">
+<div class="card-body">
 
-  <div class="col-md-4">
+  <div class="row g-3 mb-4">
 
-    <input
-      type="text"
-      class="form-control"
-      placeholder="Search by name, email or mobile..."
-      [(ngModel)]="searchText"
-      (input)="search()">
+    <div class="col-lg-4">
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by name, email or mobile..."
+        [(ngModel)]="searchText"
+        (input)="search()">
+
+    </div>
+
+    <div class="col-lg-3">
+
+      <select
+        class="form-select"
+        (change)="changeFilter($any($event.target).value)">
+
+        <option value="all">
+          Total Visitors
+        </option>
+
+        <option value="today">
+          Today
+        </option>
+
+        <option value="month">
+          This Month
+        </option>
+
+        <option value="year">
+          This Year
+        </option>
+
+      </select>
+
+    </div>
+
+    <div class="col-md-3">
+
+  <select
+    class="form-select"
+    [(ngModel)]="sortOrder"
+    (change)="applyFilters()">
+
+    <option value="recent">
+      Most Recent First
+    </option>
+
+    <option value="oldest">
+      Oldest First
+    </option>
+
+  </select>
+
+</div>
+
+    <div class="col-lg-2">
+
+      <select
+        class="form-select"
+        [(ngModel)]="pageSize"
+        (change)="changePageSize()">
+
+        <option [ngValue]="10">10</option>
+        <option [ngValue]="25">25</option>
+        <option [ngValue]="50">50</option>
+        <option [ngValue]="100">100</option>
+
+      </select>
+
+    </div>
+
+    <div class="col-lg-3 text-end">
+
+      <span class="badge bg-primary fs-6">
+
+        Total:
+        {{ filteredVisitors.length }}
+
+      </span>
+
+    </div>
+
+  </div>
+
+  <div
+    class="table-responsive"
+    *ngIf="paginatedVisitors.length > 0">
+
+    <table class="table table-hover align-middle">
+
+      <thead class="table-light">
+
+        <tr>
+
+          <th
+            style="cursor:pointer"
+            (click)="sort('visitorId')">
+
+            ID
+
+          </th>
+
+          <th
+            style="cursor:pointer"
+            (click)="sort('fullName')">
+
+            Name
+
+          </th>
+
+          <th>Email</th>
+
+          <th>Mobile</th>
+
+          <th>Gender</th>
+
+          <th>ID Proof</th>
+
+          <th>Created</th>
+
+          <th width="180">
+            Actions
+          </th>
+
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr
+          *ngFor="let visitor of paginatedVisitors">
+
+          <td>
+            {{ visitor.visitorId }}
+          </td>
+
+          <td>
+            {{ visitor.fullName }}
+          </td>
+
+          <td>
+            {{ visitor.email }}
+          </td>
+
+          <td>
+            {{ visitor.mobile }}
+          </td>
+
+          <td>
+
+            <span
+              *ngIf="visitor.gender === 'Male'"
+              class="badge bg-primary">
+
+              Male
+
+            </span>
+
+            <span
+              *ngIf="visitor.gender === 'Female'"
+              class="badge bg-danger">
+
+              Female
+
+            </span>
+
+            <span
+              *ngIf="visitor.gender === 'Other'"
+              class="badge bg-secondary">
+
+              Other
+
+            </span>
+
+          </td>
+
+          <td>
+
+            {{ visitor.idProofType }}
+
+          </td>
+
+          <td>
+
+            {{ visitor.createdAt | date:'dd MMM yyyy' }}
+
+          </td>
+
+          <td>
+
+            <button
+              class="btn btn-warning btn-sm me-2"
+              [routerLink]="[
+                '/visitors/edit',
+                visitor.visitorId
+              ]">
+
+              Edit
+
+            </button>
+
+            <button
+              class="btn btn-danger btn-sm"
+              (click)="deleteVisitor(
+                visitor.visitorId
+              )">
+
+              Delete
+
+            </button>
+
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+  <div
+    *ngIf="paginatedVisitors.length === 0"
+    class="text-center py-5">
+
+    <h4>
+      📭 No Visitors Found
+    </h4>
+
+    <p class="text-muted">
+
+      Try changing filters or
+      add a new visitor.
+
+    </p>
+
+  </div>
+
+  <div
+    class="d-flex justify-content-between align-items-center mt-4">
+
+    <button
+      class="btn btn-outline-secondary"
+      (click)="changePage(
+        currentPage - 1
+      )">
+
+      Previous
+
+    </button>
+
+    <div>
+
+      Page
+      {{ currentPage }}
+      of
+      {{ totalPages }}
+
+    </div>
+
+    <button
+      class="btn btn-outline-secondary"
+      (click)="changePage(
+        currentPage + 1
+      )">
+
+      Next
+
+    </button>
 
   </div>
 
 </div>
 
-      <table class="table table-striped">
-
-        <thead>
-  <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Mobile</th>
-    <th>Gender</th>
-    <th>ID Proof</th>
-    <th>Actions</th>
-  </tr>
-</thead>
-
-        <tbody>
-
-          <tr *ngFor="let visitor of filteredVisitors">
-
-  <td>{{ visitor.visitorId }}</td>
-  <td>{{ visitor.fullName }}</td>
-  <td>{{ visitor.email }}</td>
-  <td>{{ visitor.mobile }}</td>
-  <td>{{ visitor.gender }}</td>
-  <td>{{ visitor.idProofType }}: {{ visitor.idProofNumber }}</td>
-
-  <td>
-<button
-  class="btn btn-warning btn-sm me-2"
-  [routerLink]="['/visitors/edit', visitor.visitorId]">
-  Edit
-</button>
-
-    <button
-  class="btn btn-danger btn-sm"
-  (click)="deleteVisitor(visitor.visitorId)">
-  Delete
-</button>
-  </td>
-
-</tr>
-
-        </tbody>
-
-      </table>
-
-    </div>
 
   </div>
 

@@ -1,0 +1,110 @@
+<div class="container mt-4">
+
+  <div class="card shadow">
+
+    <div class="card-header">
+
+      New Visit Request
+
+    </div>
+
+    <div class="card-body">
+
+      <form
+        [formGroup]="requestForm"
+        (ngSubmit)="onSubmit()">
+
+        <div class="mb-3">
+
+          <label class="form-label">
+            Department
+          </label>
+
+          <select
+            class="form-select"
+            formControlName="departmentId">
+
+            <option value="">
+              Select Department
+            </option>
+
+            <option
+              *ngFor="let dept of departments"
+              [value]="dept.departmentId">
+
+              {{ dept.departmentName }}
+
+            </option>
+
+          </select>
+
+        </div>
+
+        <div class="mb-3">
+
+          <label class="form-label">
+            Host Faculty
+          </label>
+
+          <select
+            class="form-select"
+            formControlName="hostUserId">
+
+            <option value="">
+              Select Faculty
+            </option>
+
+            <option
+              *ngFor="let user of faculty"
+              [value]="user.userId">
+
+              {{ user.fullName }}
+
+            </option>
+
+          </select>
+
+        </div>
+
+        <div class="mb-3">
+
+          <label class="form-label">
+            Visit Date
+          </label>
+
+          <input
+            type="date"
+            class="form-control"
+            formControlName="visitDate">
+
+        </div>
+
+        <div class="mb-3">
+
+          <label class="form-label">
+            Purpose
+          </label>
+
+          <textarea
+            rows="4"
+            class="form-control"
+            formControlName="purpose">
+          </textarea>
+
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-primary">
+
+          Submit Request
+
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,63 +1,444 @@
-<div class="container-fluid p-4">
+<div class="container-fluid">
 
-  <h2 class="mb-4">Visitor Management Dashboard</h2>
+  <div class="d-flex justify-content-between align-items-center mb-4">
 
-  <div class="row g-4" *ngIf="stats">
+    <h2>
+      Dashboard
+    </h2>
 
-    <div class="col-md-4">
-      <div class="card shadow-sm border-0">
-        <div class="card-body">
-          <h6>Total Visitors</h6>
-          <h2>{{ stats.totalVisitors }}</h2>
-        </div>
-      </div>
+    <div>
+
+      <button
+        class="btn btn-primary me-2"
+        routerLink="/visitors/add">
+
+        + Visitor
+
+      </button>
+
+      <button
+        class="btn btn-success"
+        routerLink="/visits/add">
+
+        + Visit
+
+      </button>
+
     </div>
 
-    <div class="col-md-4">
-      <div class="card shadow-sm border-0">
-        <div class="card-body">
-          <h6>Total Visits</h6>
-          <h2>{{ stats.totalVisits }}</h2>
-        </div>
-      </div>
-    </div>
+  </div>
 
-    <div class="col-md-4">
-      <div class="card shadow-sm border-0">
-        <div class="card-body">
-          <h6>Active Visits</h6>
-          <h2>{{ stats.activeVisits }}</h2>
-        </div>
-      </div>
-    </div>
+  <!-- KPI Cards -->
 
-    <div class="col-md-4">
-      <div class="card shadow-sm border-0">
-        <div class="card-body">
-          <h6>Approved Visits</h6>
-          <h2>{{ stats.approvedVisits }}</h2>
-        </div>
-      </div>
-    </div>
+<div
+  class="row g-4 mb-4"
+  *ngIf="stats">
 
-    <div class="col-md-4">
-      <div class="card shadow-sm border-0">
-        <div class="card-body">
-          <h6>Rejected Visits</h6>
-          <h2>{{ stats.rejectedVisits }}</h2>
-        </div>
-      </div>
-    </div>
+  <!-- Total Visitors -->
 
-    <div class="col-md-4">
-      <div class="card shadow-sm border-0">
-        <div class="card-body">
-          <h6>Pending Approvals</h6>
-          <h2>{{ stats.pendingApprovals }}</h2>
-        </div>
+  <div class="col-md-3">
+
+  <div
+    class="card shadow-sm dashboard-card visitors-card"
+    routerLink="/visitors">
+
+    <div class="card-body">
+
+      <div class="dashboard-label">
+        Total Visitors
       </div>
+
+      <div class="dashboard-value-row">
+
+        <div class="dashboard-value">
+          {{ stats.totalVisitors }}
+        </div>
+
+        <i class="bi bi-people dashboard-icon"></i>
+
+      </div>
+
     </div>
 
   </div>
 
 </div>
+
+  <!-- Total Visits -->
+
+  <div class="col-md-3">
+
+  <div
+    class="card shadow-sm dashboard-card visits-card"
+    routerLink="/visits">
+
+    <div class="card-body">
+
+      <div class="dashboard-label">
+        Total Visits
+      </div>
+
+      <div class="dashboard-value-row">
+
+        <div class="dashboard-value">
+          {{ stats.totalVisits }}
+        </div>
+
+        <i class="bi bi-journal-check dashboard-icon"></i>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+  <!-- Approved Visits -->
+
+  <div class="col-md-3">
+
+  <div
+    class="card shadow-sm dashboard-card approved-card"
+    routerLink="/approvals">
+
+    <div class="card-body">
+
+      <div class="dashboard-label">
+        Approved Visits
+      </div>
+
+      <div class="dashboard-value-row">
+
+        <div class="dashboard-value">
+          {{ stats.approvedVisits }}
+        </div>
+
+        <i class="bi bi-check-circle-fill dashboard-icon"></i>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+  <!-- Pending -->
+
+  <div class="col-md-3">
+
+  <div
+    class="card shadow-sm dashboard-card pending-card"
+    routerLink="/approvals">
+
+    <div class="card-body">
+
+      <div class="dashboard-label">
+        Pending Approvals
+      </div>
+
+      <div class="dashboard-value-row">
+
+        <div class="dashboard-value">
+          {{ stats.pendingApprovals }}
+        </div>
+
+        <i class="bi bi-clock-fill dashboard-icon"></i>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+</div>
+
+  <div class="row mt-4 mb-4">
+
+  <div class="col-md-4">
+
+    <div class="alert alert-success">
+      Approved: {{ stats?.approvedVisits }}
+    </div>
+
+  </div>
+
+  <div class="col-md-4">
+
+    <div class="alert alert-warning">
+      Pending: {{ stats?.pendingApprovals }}
+    </div>
+
+  </div>
+
+  <div class="col-md-4">
+
+    <div class="alert alert-danger">
+      Rejected: {{ stats?.rejectedVisits }}
+    </div>
+
+  </div>
+
+</div>
+<div class="row g-4 mb-4">
+
+  <div class="col-md-4">
+
+  <div class="card shadow-sm insight-card approval-card">
+
+      <div class="card-body">
+
+        <div class="insight-title">
+          Approval Rate
+        </div>
+
+        <div class="insight-value">
+
+          {{
+            (
+              (stats?.approvedVisits || 0) /
+              (stats?.totalVisits || 1)
+            ) * 100 | number:'1.0-0'
+          }}%
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="col-md-4">
+
+  <div class="card shadow-sm insight-card inside-card">
+
+      <div class="card-body">
+
+        <div class="insight-title">
+          Currently Inside
+        </div>
+
+        <div class="insight-value">
+
+          {{ stats?.activeVisits }}
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="col-md-4">
+
+    <div class="card shadow-sm insight-card rejection-card">
+
+      <div class="card-body">
+
+        <div class="insight-title">
+          Rejection Rate
+        </div>
+
+        <div class="insight-value">
+
+          {{
+            (
+              (stats?.rejectedVisits || 0) /
+              (stats?.totalVisits || 1)
+            ) * 100 | number:'1.0-0'
+          }}%
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+<div class="row g-4 mb-4">
+
+  <div class="col-lg-8">
+
+    <div class="card shadow-sm">
+
+      <div class="card-header">
+
+        Department Visits
+
+      </div>
+
+      <div class="card-body">
+
+       <div class="chart-wrapper">
+  <canvas id="dashboardDeptChart"></canvas>
+</div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="col-lg-4">
+
+    <div class="card shadow-sm">
+
+      <div class="card-header">
+
+        Approval Distribution
+
+      </div>
+
+      <div class="card-body">
+
+        <canvas id="dashboardApprovalChart"></canvas>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+  <!-- Recent Visits -->
+
+  <div class="card shadow-sm">
+
+    <div class="card-header">
+
+      Recent Visits
+
+    </div>
+
+    <div class="card-body p-0">
+
+      <table
+        class="table table-hover mb-0">
+
+        <thead>
+
+          <tr>
+
+           <th>Visitor Name</th>
+
+           <th>Host</th>
+
+            <th>Department</th>
+
+            <th>Purpose</th>
+
+            <th>Date</th>
+
+            <th>Status</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr
+            *ngFor="let visit of recentVisits">
+
+            <td>
+
+  <div class="visitor-cell">
+
+    <div class="avatar-circle">
+      {{ visit.visitorFullName.charAt(0) }}
+    </div>
+
+    <span>
+      {{ visit.visitorFullName }}
+    </span>
+
+  </div>
+
+</td>
+
+            <td>
+
+              {{ visit.hostUserFullName }}
+
+           </td>
+
+            <td>
+
+              {{ visit.departmentName }}
+
+            </td>
+
+            <td>
+
+              {{ visit.purpose }}
+
+            </td>
+
+            <td>
+
+              {{ visit.visitDate | date:'dd MMM yyyy' }}
+
+            </td>
+
+            <td>
+
+              <span
+                *ngIf="visit.approvalStatus === 'Approved'"
+                class="badge bg-success">
+
+                Approved
+
+              </span>
+
+              <span
+                *ngIf="visit.approvalStatus === 'Pending'"
+                class="badge bg-warning text-dark">
+
+                Pending
+
+              </span>
+
+              <span
+                *ngIf="visit.approvalStatus === 'Rejected'"
+                class="badge bg-danger">
+
+                Rejected
+
+              </span>
+
+            </td>
+
+          </tr>
+
+          <tr
+            *ngIf="recentVisits.length === 0">
+
+            <td
+              colspan="5"
+              class="text-center py-4">
+
+              No recent visits found
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>
+

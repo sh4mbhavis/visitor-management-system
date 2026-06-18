@@ -10,3 +10,17 @@
   padding: 0 24px;
   flex-shrink: 0;
 }
+
+.navbar h5 {
+  color: #111827;
+  font-weight: 600;
+}
+
+.dark-theme .navbar {
+  background: #111827 !important;
+  border-bottom: 1px solid #374151 !important;
+}
+
+.dark-theme .navbar h5 {
+  color: #ffffff !important;
+}

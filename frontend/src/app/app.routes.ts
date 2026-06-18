@@ -16,12 +16,27 @@ import { AddDepartmentComponent } from './features/departments/add-department/ad
 import { EditDepartmentComponent } from './features/departments/edit-department/edit-department';
 import { AddVisitComponent } from './features/visits/add-visit/add-visit';
 import { EditVisitComponent } from './features/visits/edit-visit/edit-visit';
-
+import { AddUserComponent } from './features/users/add-user/add-user';
+import { EditUserComponent } from './features/users/edit-user/edit-user';
+import { ApprovalHistoryComponent }
+from './features/approvals/approval-history/approval-history';
+import { VisitorDashboardComponent }
+from './features/visitor-dashboard/visitor-dashboard/visitor-dashboard';
+import { VisitorRequestComponent }
+from './features/visitor-request/visitor-request/visitor-request';
 export const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
   },
+  {
+  path: 'visitor-dashboard',
+  component: VisitorDashboardComponent
+},
+  {
+  path: 'visitor-request',
+  component: VisitorRequestComponent
+},
 
   {
     path: '',
@@ -32,6 +47,10 @@ export const routes: Routes = [
   { path: 'visitors/add', component: AddVisitorComponent },
   { path: 'visits', component: VisitListComponent },
   { path: 'approvals', component: ApprovalListComponent },
+  {
+  path: 'approvals/history/:visitId',
+  component: ApprovalHistoryComponent
+},
   { path: 'reports', component: ReportListComponent },
   { path: 'users', component: UserListComponent },
 {
@@ -45,6 +64,8 @@ export const routes: Routes = [
 { path: 'visits', component: VisitListComponent },
 { path: 'visits/add', component: AddVisitComponent },
 { path: 'visits/edit/:id', component: EditVisitComponent },
+{ path: 'users/add', component: AddUserComponent },
+{ path: 'users/edit/:id', component: EditUserComponent },
 ]
   },
 

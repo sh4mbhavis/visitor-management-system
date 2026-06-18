@@ -19,6 +19,13 @@ export class UserService {
       this.apiUrl
     );
   }
+  getFaculty(): Observable<any[]> {
+
+  return this.http.get<any[]>(
+    `${this.apiUrl}/faculty`
+  );
+
+}
 
   getById(id: number) {
     return this.http.get(

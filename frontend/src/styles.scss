@@ -1,1 +1,170 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+.dark-theme {
+
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+
+}
+
+.dark-theme body,
+body.dark-theme {
+
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+
+}
+
+.dark-theme .page-content {
+
+  background-color: #0f172a !important;
+
+}
+
+.dark-theme .container,
+.dark-theme .container-fluid {
+
+  color: #f8fafc !important;
+
+}
+
+.dark-theme .card {
+
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+  border-color: #334155 !important;
+
+}
+
+.dark-theme .card-header {
+
+  background-color: #111827 !important;
+  color: #f8fafc !important;
+
+}
+
+.dark-theme .table {
+
+  color: #f8fafc !important;
+
+}
+
+.dark-theme .table td,
+.dark-theme .table th {
+
+  color: #f8fafc !important;
+  background-color: #1e293b !important;
+
+}
+
+.dark-theme .table-light {
+
+  background-color: #334155 !important;
+
+}
+
+.dark-theme .table-light th {
+
+  background-color: #334155 !important;
+  color: white !important;
+
+}
+
+.dark-theme h1,
+.dark-theme h2,
+.dark-theme h3,
+.dark-theme h4,
+.dark-theme h5,
+.dark-theme h6,
+.dark-theme p,
+.dark-theme label,
+.dark-theme span {
+
+  color: #f8fafc !important;
+
+}
+
+.navbar h5 {
+  color: #111827;
+  font-weight: 600;
+}
+
+.dark-theme .navbar h5 {
+  color: #ffffff !important;
+}
+
+.dark-theme .navbar {
+
+  background: #111827 !important;
+
+  border-bottom: 1px solid #374151;
+
+}
+
+.dark-theme .navbar h5 {
+  color: white !important;
+}
+
+.dark-theme .card {
+  color: white;
+}
+
+.dark-theme .card * {
+  color: inherit;
+}
+
+.dark-theme .form-control,
+.dark-theme .form-select {
+
+  background-color: #111827 !important;
+  color: white !important;
+  border: 1px solid #475569 !important;
+
+}
+
+.dark-theme .form-control::placeholder {
+
+  color: #94a3b8 !important;
+
+}
+
+.dark-theme input[type="date"],
+.dark-theme input[type="number"] {
+
+  color: white !important;
+
+}
+
+body.sidebar-collapsed .content-wrapper {
+  margin-left: 80px;
+}
+
+body.dark-theme .dept-kpi {
+
+  background: #1f2940 !important;
+
+  color: white !important;
+
+  border-left: 1px solid rgba(
+    255,
+    255,
+    255,
+    0.08
+  ) !important;
+
+  border-right: 1px solid rgba(
+    255,
+    255,
+    255,
+    0.08
+  ) !important;
+
+  border-bottom: 1px solid rgba(
+    255,
+    255,
+    255,
+    0.08
+  ) !important;
+
+}

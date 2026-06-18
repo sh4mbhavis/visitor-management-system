@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { Location } from '@angular/common';
 import { VisitorService } from '../../../core/services/visitor.service';
 
 @Component({
@@ -19,13 +19,20 @@ export class AddVisitorComponent {
   constructor(
     private readonly fb: FormBuilder,
     private readonly visitorService: VisitorService,
-    private readonly router: Router
+    private readonly router: Router,
+      private readonly location: Location,
   ) {
 
     this.visitorForm = this.fb.group({
       fullName: ['', Validators.required],
-      mobile: ['', Validators.required],
-      email: [''],
+      mobile: [
+  '',
+  [
+    Validators.required,
+    Validators.pattern('^[0-9]{10}$')
+  ]
+],
+      email: ['', Validators.email],
       gender: [''],
       address: [''],
       idProofType: [''],
@@ -52,4 +59,10 @@ export class AddVisitorComponent {
         }
       });
   }
+
+  goBack(): void {
+
+  this.location.back();
+
+}
 }

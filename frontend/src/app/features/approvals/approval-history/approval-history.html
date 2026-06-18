@@ -1,0 +1,145 @@
+<div class="container-fluid">
+
+  <div
+    class="d-flex justify-content-between align-items-center mb-4">
+
+    <div>
+
+      <h2 class="mb-0">
+
+        Approval History
+
+      </h2>
+
+      <small class="text-muted">
+
+        Visit #{{ visitId }}
+
+      </small>
+
+    </div>
+
+    <button
+      type="button"
+      class="btn btn-outline-secondary"
+      (click)="goBack()">
+
+      ← Back
+
+    </button>
+
+  </div>
+<div class="card shadow-sm">
+
+  <div class="card-body">
+
+    <div
+      *ngIf="approvals.length > 0"
+      class="timeline">
+
+      <div
+        *ngFor="
+          let approval of approvals;
+          let last = last
+        "
+        class="timeline-item">
+
+        <div class="timeline-icon">
+
+          <span
+            *ngIf="
+              approval.status === 'Approved'
+            ">
+            🟢
+          </span>
+
+          <span
+            *ngIf="
+              approval.status === 'Rejected'
+            ">
+            🔴
+          </span>
+
+          <span
+            *ngIf="
+              approval.status === 'Pending'
+            ">
+            🟡
+          </span>
+
+        </div>
+
+        <div class="timeline-content">
+
+          <h6 class="mb-1">
+
+            {{ approval.status }}
+
+          </h6>
+
+          <div class="text-muted small">
+
+            {{
+              approval.actionTime
+                | date:
+                'dd MMM yyyy hh:mm a'
+            }}
+
+          </div>
+
+          <div
+            *ngIf="
+              approval.approverUserName
+            "
+            class="mt-1">
+
+            By
+
+            <strong>
+
+              {{
+                approval.approverUserName
+              }}
+
+            </strong>
+
+          </div>
+
+          <div
+            *ngIf="
+              approval.remarks
+            "
+            class="mt-1">
+
+            {{ approval.remarks }}
+
+          </div>
+
+        </div>
+
+        <div
+          *ngIf="!last"
+          class="timeline-line">
+        </div>
+
+      </div>
+
+    </div>
+
+    <div
+      *ngIf="approvals.length === 0"
+      class="text-center py-5">
+
+      <h4>
+        📭 No Approval History
+      </h4>
+
+      <p class="text-muted">
+        No actions recorded yet.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>

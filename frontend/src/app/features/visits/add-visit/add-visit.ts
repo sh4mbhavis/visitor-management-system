@@ -6,7 +6,7 @@ import {
   ReactiveFormsModule,
   Validators
 } from '@angular/forms';
-
+import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { ChangeDetectorRef } from '@angular/core';
 import { VisitService } from '../../../core/services/visit.service';
@@ -14,12 +14,13 @@ import { VisitorService } from '../../../core/services/visitor.service';
 import { UserService } from '../../../core/services/user.service';
 import { DepartmentService } from '../../../core/services/department.service';
 
+
 @Component({
   selector: 'app-add-visit',
   standalone: true,
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   templateUrl: './add-visit.html',
   styleUrl: './add-visit.scss'
@@ -39,7 +40,8 @@ export class AddVisitComponent {
   private readonly userService: UserService,
   private readonly departmentService: DepartmentService,
   private readonly router: Router,
-  private readonly cdr: ChangeDetectorRef
+  private readonly cdr: ChangeDetectorRef,
+  private readonly location: Location,
 ) {
 
     this.visitForm = this.fb.group({
@@ -118,5 +120,11 @@ this.departmentService.getAll()
       });
 
   }
+
+  goBack(): void {
+
+  this.location.back();
+
+}
 
 }

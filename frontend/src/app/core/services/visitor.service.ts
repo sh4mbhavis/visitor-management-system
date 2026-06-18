@@ -7,15 +7,18 @@ import { Visitor } from '../models/visitor.model';
   providedIn: 'root'
 })
 export class VisitorService {
-
   private readonly apiUrl =
     'http://localhost:5155/api/visitors';
 
   constructor(private readonly http: HttpClient) {}
 
   getAll(): Observable<Visitor[]> {
-    return this.http.get<Visitor[]>(this.apiUrl);
-  }
+
+  console.log('API Called');
+
+  return this.http.get<Visitor[]>(this.apiUrl);
+
+}
   create(visitor: any) {
   return this.http.post(this.apiUrl, visitor);
 }
@@ -32,5 +35,15 @@ getById(id: number) {
 
 update(id: number, visitor: any) {
   return this.http.put(`${this.apiUrl}/${id}`, visitor);
+}
+
+searchVisitors(
+  term: string
+) {
+
+  return this.http.get(
+    `${this.apiUrl}/search?term=${encodeURIComponent(term)}`
+  );
+
 }
 }

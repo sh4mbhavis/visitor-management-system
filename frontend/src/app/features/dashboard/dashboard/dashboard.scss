@@ -1,21 +1,283 @@
-.container-fluid {
-  background: #f4f6f9;
-  min-height: 100vh;
-}
+.dashboard-card {
 
-.card {
   border-radius: 16px;
-  transition: transform 0.2s ease;
+
+  overflow: hidden;
+
+  transition: all 0.25s ease;
+
+  border: none !important;
+
+  box-shadow:
+    0 4px 15px rgba(0,0,0,0.08);
+
 }
 
-.card:hover {
+.dashboard-card:hover {
+
   transform: translateY(-4px);
+
 }
 
-.card-body {
+.visitors-card {
+
+  border-top: 4px solid #4f46e5 !important;
+
+}
+
+.visits-card {
+
+  border-top: 4px solid #14b8a6 !important;
+
+}
+
+.approved-card {
+
+  border-top: 4px solid #10b981 !important;
+
+}
+
+.pending-card {
+
+  border-top: 4px solid #f59e0b !important;
+
+}
+
+/* Card Header */
+
+.card-header {
+
+  font-weight: 600;
+
+}
+
+/* Tables */
+
+.table {
+
+  margin-bottom: 0;
+
+}
+
+.table td {
+
+  vertical-align: middle;
+
+}
+
+/* Dark Theme Support */
+
+.dark-theme .dashboard-label {
+
+  color: #cbd5e1 !important;
+
+}
+
+.dark-theme .dashboard-value {
+
+  color: #ffffff !important;
+
+}
+
+.dark-theme .dashboard-card {
+
+  background-color: #1e293b !important;
+
+}
+
+.dark-theme .card-header {
+
+  background-color: #111827 !important;
+
+  color: #ffffff !important;
+
+}
+
+.dark-theme .table {
+
+  color: #ffffff !important;
+
+}
+
+.dark-theme .table td,
+.dark-theme .table th {
+
+  background-color: #1e293b !important;
+
+  color: #ffffff !important;
+
+}
+
+/* Empty State */
+
+.empty-state {
+
+  padding: 30px;
+
   text-align: center;
+
+  color: #6b7280;
+
 }
 
-h2 {
+.dark-theme .empty-state {
+
+  color: #cbd5e1;
+
+}
+
+.dashboard-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 10px;
+}
+
+.dashboard-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #111827;
+}
+
+.dashboard-value-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-icon {
+  font-size: 2rem;
+  opacity: 0.25;
+}
+
+.dashboard-card .card-body {
+  padding: 1.5rem;
+}
+
+.dark-theme .dashboard-label {
+  color: #cbd5e1 !important;
+}
+
+.dark-theme .dashboard-value {
+  color: #ffffff !important;
+}
+
+.dark-theme .dashboard-icon {
+  color: rgba(255,255,255,0.25) !important;
+}
+
+.visitors-card .dashboard-value {
+  color: #6366f1;
+}
+
+.visits-card .dashboard-value {
+  color: #14b8a6;
+}
+
+.approved-card .dashboard-value {
+  color: #10b981;
+}
+
+.pending-card .dashboard-value {
+  color: #f59e0b;
+}
+
+.dashboard-card {
+  min-height: 110px;
+  border-radius: 16px;
+}
+
+.insight-card {
+  border: none;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: .3s;
+}
+
+.insight-card:hover {
+  transform: translateY(-3px);
+}
+
+.approval-card {
+  background: linear-gradient(
+    135deg,
+    #10b981,
+    #34d399
+  );
+  color: white;
+}
+
+.inside-card {
+  background: linear-gradient(
+    135deg,
+    #3b82f6,
+    #60a5fa
+  );
+  color: white;
+}
+
+.rejection-card {
+  background: linear-gradient(
+    135deg,
+    #ef4444,
+    #f87171
+  );
+  color: white;
+}
+
+.insight-title {
+  font-size: 0.95rem;
+  opacity: .9;
+}
+
+.insight-value {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.chart-wrapper {
+  height: 250px;
+  position: relative;
+}
+
+.dashboard-card {
+  overflow: hidden;
+  position: relative;
+}
+
+.dashboard-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+  transform: translate(25px,-25px);
+}
+
+.card-body canvas {
+  max-height: 240px;
+}
+
+.visitor-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
   font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
 }

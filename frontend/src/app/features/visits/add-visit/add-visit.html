@@ -1,135 +1,176 @@
-<div class="container">
+<div class="container-fluid">
 
-  <div class="card shadow">
+  <div class="d-flex justify-content-between align-items-center mb-4">
 
-    <div class="card-header">
-      <h3>Create Visit</h3>
-    </div>
 
-    <div class="card-body">
+<div>
+  <h2 class="mb-0">Create Visit</h2>
+  <small class="text-muted">
+    Register a new visit request
+  </small>
+</div>
 
-      <form
-        [formGroup]="visitForm"
-        (ngSubmit)="onSubmit()">
+<button
+  type="button"
+  class="btn btn-outline-secondary"
+  (click)="goBack()">
 
-        <div class="mb-3">
+  ← Back
 
-          <label class="form-label">
-            Visitor
-          </label>
+</button>
 
-          <p>Total Visitors: {{ visitors.length }}</p>
 
-          <select
-            class="form-select"
-            formControlName="visitorId">
+  </div>
 
-            <option value="">
-              Select Visitor
-            </option>
+  <div class="card shadow-sm">
 
-            <option
-              *ngFor="let visitor of visitors"
-              [value]="visitor.visitorId">
 
-              {{ visitor.fullName }}
+<div class="card-body">
 
-            </option>
+  <form
+    [formGroup]="visitForm"
+    (ngSubmit)="onSubmit()">
 
-          </select>
+    <div class="row">
 
-        </div>
+      <div class="col-md-6 mb-3">
 
-        <div class="mb-3">
+        <label class="form-label">
+          Visitor *
+        </label>
 
-          <label class="form-label">
-            Host User
-          </label>
+        <select
+          class="form-select"
+          formControlName="visitorId">
 
-          <select
-            class="form-select"
-            formControlName="hostUserId">
+          <option value="">
+            Select Visitor
+          </option>
 
-            <option value="">
-              Select Host User
-            </option>
+          <option
+            *ngFor="let visitor of visitors"
+            [value]="visitor.visitorId">
 
-            <option
-              *ngFor="let user of users"
-              [value]="user.userId">
+            {{ visitor.fullName }}
 
-              {{ user.fullName }}
+          </option>
 
-            </option>
+        </select>
 
-          </select>
+      </div>
 
-        </div>
+      <div class="col-md-6 mb-3">
 
-        <div class="mb-3">
+        <label class="form-label">
+          Host User *
+        </label>
 
-          <label class="form-label">
-            Department
-          </label>
+        <select
+          class="form-select"
+          formControlName="hostUserId">
 
-          <select
-            class="form-select"
-            formControlName="departmentId">
+          <option value="">
+            Select Host User
+          </option>
 
-            <option value="">
-              Select Department
-            </option>
+          <option
+            *ngFor="let user of users"
+            [value]="user.userId">
 
-            <option
-              *ngFor="let department of departments"
-              [value]="department.departmentId">
+            {{ user.fullName }}
 
-              {{ department.departmentName }}
+          </option>
 
-            </option>
+        </select>
 
-          </select>
-
-        </div>
-
-        <div class="mb-3">
-
-          <label class="form-label">
-            Purpose
-          </label>
-
-          <textarea
-            rows="3"
-            class="form-control"
-            formControlName="purpose">
-          </textarea>
-
-        </div>
-
-        <div class="mb-3">
-
-          <label class="form-label">
-            Visit Date
-          </label>
-
-          <input
-            type="date"
-            class="form-control"
-            formControlName="visitDate">
-
-        </div>
-
-        <button
-          type="submit"
-          class="btn btn-primary">
-
-          Create Visit
-
-        </button>
-
-      </form>
+      </div>
 
     </div>
+
+    <div class="row">
+
+      <div class="col-md-6 mb-3">
+
+        <label class="form-label">
+          Department *
+        </label>
+
+        <select
+          class="form-select"
+          formControlName="departmentId">
+
+          <option value="">
+            Select Department
+          </option>
+
+          <option
+            *ngFor="let department of departments"
+            [value]="department.departmentId">
+
+            {{ department.departmentName }}
+
+          </option>
+
+        </select>
+
+      </div>
+
+      <div class="col-md-6 mb-3">
+
+        <label class="form-label">
+          Visit Date *
+        </label>
+
+        <input
+          type="date"
+          class="form-control"
+          formControlName="visitDate">
+
+      </div>
+
+    </div>
+
+    <div class="mb-3">
+
+      <label class="form-label">
+        Purpose
+      </label>
+
+      <textarea
+        rows="4"
+        class="form-control"
+        formControlName="purpose">
+      </textarea>
+
+    </div>
+
+    <hr>
+
+    <div class="d-flex gap-2">
+
+      <button
+        type="submit"
+        class="btn btn-primary">
+
+        Create Visit
+
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-secondary"
+        (click)="goBack()">
+
+        Cancel
+
+      </button>
+
+    </div>
+
+  </form>
+
+</div>
+
 
   </div>
 

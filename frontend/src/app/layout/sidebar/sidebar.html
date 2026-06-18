@@ -1,39 +1,152 @@
-<div class="sidebar">
+<div
+  class="sidebar"
+  [class.collapsed]="isCollapsed">
 
   <h4 class="logo">
     VMS
   </h4>
+<button
+  class="collapse-btn"
+  (click)="toggleSidebar()">
 
+  ☰
+
+</button>
  <nav>
 
-  <a routerLink="/dashboard">
+  <!-- Admin / Receptionist / Security -->
+
+  <ng-container
+    *ngIf="
+      role === 'Admin' ||
+      role === 'Receptionist' ||
+      role === 'Security'
+    ">
+
+  <a
+  routerLink="/dashboard"
+  routerLinkActive="active-link"
+  [routerLinkActiveOptions]="{ exact: true }">
+
+  <i class="bi bi-speedometer2"></i>
+
+  <span class="menu-text">
     Dashboard
-  </a>
+  </span>
 
-  <a routerLink="/visitors">
-    Visitors
-  </a>
-
-  <a routerLink="/visits">
-    Visits
-  </a>
-
-  <a routerLink="/approvals">
-    Approvals
-  </a>
-
-  <a routerLink="/reports">
-    Reports
-  </a>
-
-  <a routerLink="/users">
-    Users
-  </a>
-
-  <a routerLink="/departments">
-  Departments
 </a>
 
+<a
+  routerLink="/visitors"
+  routerLinkActive="active-link">
+
+  <i class="bi bi-people"></i>
+
+  <span class="menu-text">
+    Visitors
+  </span>
+
+</a>
+
+<a
+  routerLink="/visits"
+  routerLinkActive="active-link">
+
+  <i class="bi bi-calendar-event"></i>
+
+  <span class="menu-text">
+    Visits
+  </span>
+
+</a>
+
+<a
+  routerLink="/approvals"
+  routerLinkActive="active-link">
+
+  <i class="bi bi-check-circle"></i>
+
+  <span class="menu-text">
+    Approvals
+  </span>
+
+</a>
+
+<a
+  routerLink="/reports"
+  routerLinkActive="active-link">
+
+  <i class="bi bi-file-earmark-bar-graph"></i>
+
+  <span class="menu-text">
+    Reports
+  </span>
+
+</a>
+
+<a
+  routerLink="/users"
+  routerLinkActive="active-link">
+
+  <i class="bi bi-person"></i>
+
+  <span class="menu-text">
+    Users
+  </span>
+
+</a>
+
+<a
+  routerLink="/departments"
+  routerLinkActive="active-link">
+
+  <i class="bi bi-building"></i>
+
+  <span class="menu-text">
+    Departments
+  </span>
+
+</a>
+
+  </ng-container>
+
+  <!-- Faculty -->
+
+  <ng-container
+    *ngIf="role === 'Faculty'">
+
+    <a routerLink="/user-dashboard">
+      <i class="bi bi-speedometer2"></i>
+      <span class="menu-text">
+        My Dashboard
+      </span>
+    </a>
+
+    <a routerLink="/visits">
+      <i class="bi bi-calendar-event"></i>
+      <span class="menu-text">
+        My Requests
+      </span>
+    </a>
+
+  </ng-container>
+
 </nav>
+
+<div class="bottom-user">
+
+  <div class="user-name">
+
+    {{ fullName }}
+
+  </div>
+
+  <div class="user-role">
+
+    {{ role }}
+
+  </div>
+
+</div>
 
 </div>

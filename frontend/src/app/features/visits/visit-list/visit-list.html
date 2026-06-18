@@ -2,116 +2,486 @@
 
   <div class="d-flex justify-content-between align-items-center mb-4">
 
-    <h2>Visits</h2>
+
+<div>
+  <h2 class="mb-0">Visits</h2>
+  <small class="text-muted">
+    Manage all visit requests and gate passes
+  </small>
+</div>
+
+<button
+  class="btn btn-primary"
+  routerLink="/visits/add">
+
+  + Create Visit
+
+</button>
+
+
+  </div>
+
+ <div class="row mb-4">
+
+  <div class="col-md-3">
+
+    <div class="stats-card visits-card">
+
+      <div class="stats-content">
+
+        <div>
+          <div class="stats-label">
+            Total Visits
+          </div>
+
+          <div class="stats-value">
+            {{ totalVisits }}
+          </div>
+
+          <small>
+            All visit requests
+          </small>
+
+        </div>
+
+        <i class="bi bi-journal-check stats-icon"></i>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="col-md-3">
+
+    <div class="stats-card approved-card">
+
+      <div class="stats-content">
+
+        <div>
+          <div class="stats-label">
+            Approved
+          </div>
+
+          <div class="stats-value">
+            {{ approvedVisits }}
+          </div>
+
+          <small>
+            Successfully approved
+          </small>
+
+        </div>
+
+        <i class="bi bi-check-circle-fill stats-icon"></i>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="col-md-3">
+
+    <div class="stats-card pending-card">
+
+      <div class="stats-content">
+
+        <div>
+          <div class="stats-label">
+            Pending
+          </div>
+
+          <div class="stats-value">
+            {{ pendingVisits }}
+          </div>
+
+          <small>
+            Awaiting approval
+          </small>
+
+        </div>
+
+        <i class="bi bi-clock-fill stats-icon"></i>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="col-md-3">
+
+    <div class="stats-card checkout-card">
+
+      <div class="stats-content">
+
+        <div>
+          <div class="stats-label">
+            Checked Out
+          </div>
+
+          <div class="stats-value">
+            {{ checkedOutVisits }}
+          </div>
+
+          <small>
+            Visitors exited
+          </small>
+
+        </div>
+
+        <i class="bi bi-box-arrow-right stats-icon"></i>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+  <div class="card shadow-sm">
+
+
+<div class="card-body">
+
+  <div class="row g-3 mb-4">
+
+    <div class="col-md-4">
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search visitor, host, department..."
+        [(ngModel)]="searchText"
+        (input)="search()">
+
+    </div>
+
+   <div class="col-md-3">
+
+  <select
+    class="form-select"
+    [(ngModel)]="selectedDateFilter"
+    (change)="applyFilters()">
+
+    <option value="all">
+      All Dates
+    </option>
+
+    <option value="today">
+      Today
+    </option>
+
+    <option value="month">
+      This Month
+    </option>
+
+    <option value="year">
+      This Year
+    </option>
+
+  </select>
+
+</div>
+
+<div class="col-md-3">
+
+  <div class="input-group">
+
+    <input
+      type="date"
+      class="form-control"
+      [(ngModel)]="selectedVisitDate"
+      (change)="applyFilters()">
 
     <button
-      class="btn btn-primary"
-      routerLink="/visits/add">
+      class="btn btn-outline-secondary"
+      type="button"
+      (click)="clearDateFilter()">
 
-      Create Visit
+      Clear
 
     </button>
 
   </div>
 
-  <div class="card shadow-sm">
+</div>
 
-    <div class="card-body">
+<div class="col-md-3">
 
-      <table class="table table-hover">
+  <select
+    class="form-select"
+    [(ngModel)]="sortOrder"
+    (change)="applyFilters()">
 
-        <thead>
+    <option value="recent">
+      Most Recent First
+    </option>
 
-          <tr>
+    <option value="oldest">
+      Oldest First
+    </option>
 
-            <th>ID</th>
-            <th>Visitor</th>
-            <th>Host User</th>
-            <th>Department</th>
-            <th>Purpose</th>
-            <th>Visit Date</th>
-            <th>Status</th>
-            <th>Actions</th>
+  </select>
 
-          </tr>
+</div>
 
-        </thead>
+    <div class="col-md-3">
 
-        <tbody>
+      <select
+        class="form-select"
+        [(ngModel)]="selectedApprovalFilter"
+        (change)="applyFilters()">
 
-          <tr *ngFor="let visit of visits">
+        <option value="all">
+          All Approvals
+        </option>
 
-            <td>
-              {{ visit.visitId }}
-            </td>
+        <option value="Approved">
+          Approved
+        </option>
 
-            <td>
-              {{ visit.visitorFullName }}
-            </td>
+        <option value="Pending">
+          Pending
+        </option>
 
-            <td>
-              {{ visit.hostUserFullName }}
-            </td>
+        <option value="Rejected">
+          Rejected
+        </option>
 
-            <td>
-              {{ visit.departmentName }}
-            </td>
-
-            <td>
-              {{ visit.purpose }}
-            </td>
-
-            <td>
-              {{ visit.visitDate | date:'dd/MM/yyyy' }}
-            </td>
-
-            <td>
-              {{ visit.visitStatusName }}
-            </td>
-
-            <td>
-
-              <button
-                class="btn btn-success btn-sm me-2"
-                (click)="checkIn(visit.visitId)">
-
-                Check-In
-
-              </button>
-
-              <button
-                class="btn btn-secondary btn-sm me-2"
-                (click)="checkOut(visit.visitId)">
-
-                Check-Out
-
-              </button>
-
-              <button
-                class="btn btn-warning btn-sm me-2"
-                [routerLink]="['/visits/edit', visit.visitId]">
-
-                Edit
-
-              </button>
-
-              <button
-                class="btn btn-danger btn-sm"
-                (click)="deleteVisit(visit.visitId)">
-
-                Delete
-
-              </button>
-
-            </td>
-
-          </tr>
-
-        </tbody>
-
-      </table>
+      </select>
 
     </div>
+
+    <div class="col-md-2">
+
+      <select
+        class="form-select"
+        [(ngModel)]="pageSize"
+        (change)="changePageSize()">
+
+        <option [ngValue]="10">10</option>
+        <option [ngValue]="25">25</option>
+        <option [ngValue]="50">50</option>
+        <option [ngValue]="100">100</option>
+
+      </select>
+
+    </div>
+
+  </div>
+
+  <div class="table-responsive">
+
+    <table class="table table-hover align-middle">
+
+      <thead class="table-light">
+
+        <tr>
+
+          <th>ID</th>
+          <th>Visitor</th>
+          <th>Host User</th>
+          <th>Department</th>
+          <th>Purpose</th>
+          <th>Visit Date</th>
+          <th>Approval</th>
+          <th>Status</th>
+          <th>Gate Pass</th>
+          <th>QR</th>
+          <th width="320">
+            Actions
+          </th>
+
+        </tr>
+
+      </thead>
+
+      <tbody>
+<tr *ngFor="let visit of paginatedVisits; trackBy: trackByVisit">
+
+          <td>
+            {{ visit.visitId }}
+          </td>
+
+          <td>
+            {{ visit.visitorFullName }}
+          </td>
+
+          <td>
+            {{ visit.hostUserFullName }}
+          </td>
+
+          <td>
+            {{ visit.departmentName }}
+          </td>
+
+          <td>
+            {{ visit.purpose }}
+          </td>
+
+          <td>
+            {{ visit.visitDate | date:'dd MMM yyyy' }}
+          </td>
+
+          <td>
+
+            <span
+              *ngIf="visit.approvalStatus === 'Approved'"
+              class="badge bg-success">
+
+              Approved
+
+            </span>
+
+            <span
+              *ngIf="visit.approvalStatus === 'Pending'"
+              class="badge bg-warning text-dark">
+
+              Pending
+
+            </span>
+
+            <span
+              *ngIf="visit.approvalStatus === 'Rejected'"
+              class="badge bg-danger">
+
+              Rejected
+
+            </span>
+
+          </td>
+
+          <td>
+
+            <span class="badge bg-primary">
+
+              {{ visit.visitStatusName }}
+
+            </span>
+
+          </td>
+
+          <td>
+
+            {{ visit.gatePassNumber || '-' }}
+
+          </td>
+
+          <td>
+
+            <img
+  *ngIf="visit.qrCodePath"
+  [src]="'http://localhost:5155' + visit.qrCodePath + '?t=' + visit.visitId + '-' + currentPage"
+  width="60"
+  height="60"
+  alt="QR Code">
+
+          </td>
+
+          <td>
+
+            <button
+              class="btn btn-success btn-sm me-1 mb-1"
+              (click)="checkIn(visit.visitId)">
+
+              In
+
+            </button>
+
+            <button
+              class="btn btn-secondary btn-sm me-1 mb-1"
+              (click)="checkOut(visit.visitId)">
+
+              Out
+
+            </button>
+
+            <button
+              class="btn btn-warning btn-sm me-1 mb-1"
+              [routerLink]="[
+                '/visits/edit',
+                visit.visitId
+              ]">
+
+              Edit
+
+            </button>
+
+            <button
+              class="btn btn-danger btn-sm me-1 mb-1"
+              (click)="deleteVisit(
+                visit.visitId
+              )">
+
+              Delete
+
+            </button>
+
+            <button
+              *ngIf="
+                visit.approvalStatus ===
+                'Approved'
+              "
+              class="btn btn-dark btn-sm mb-1"
+              (click)="downloadGatePass(
+                visit
+              )">
+
+              Gate Pass
+
+            </button>
+
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+  <div
+    class="d-flex
+           justify-content-between
+           align-items-center
+           mt-4">
+
+    <button
+      class="btn btn-outline-secondary"
+      (click)="changePage(
+        currentPage - 1
+      )">
+
+      Previous
+
+    </button>
+
+    <div>
+
+      Page
+      {{ currentPage }}
+      of
+      {{ totalPages }}
+
+    </div>
+
+    <button
+      class="btn btn-outline-secondary"
+      (click)="changePage(
+        currentPage + 1
+      )">
+
+      Next
+
+    </button>
+
+  </div>
+
+</div>
+
 
   </div>
 

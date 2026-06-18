@@ -1,1 +1,452 @@
-<p>approval-list works!</p>
+<div class="container-fluid">
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+
+<div>
+  <h2 class="mb-0">Approvals</h2>
+  <small class="text-muted">
+    Manage visitor approval requests
+  </small>
+</div>
+
+
+  </div>
+<div class="row mb-4">
+
+  <div class="col-md-4">
+
+    <div class="approval-kpi pending-kpi">
+
+      <div class="kpi-title">
+        Pending Approvals
+      </div>
+
+      <div class="kpi-value">
+        {{ pendingCount }}
+      </div>
+
+      <i class="bi bi-hourglass-split"></i>
+
+    </div>
+
+  </div>
+
+  <div class="col-md-4">
+
+    <div class="approval-kpi approved-kpi">
+
+      <div class="kpi-title">
+        Approved Requests
+      </div>
+
+      <div class="kpi-value">
+        {{ approvedCount }}
+      </div>
+
+      <i class="bi bi-check-circle-fill"></i>
+
+    </div>
+
+  </div>
+
+  <div class="col-md-4">
+
+    <div class="approval-kpi rejected-kpi">
+
+      <div class="kpi-title">
+        Rejected Requests
+      </div>
+
+      <div class="kpi-value">
+        {{ rejectedCount }}
+      </div>
+
+      <i class="bi bi-x-circle-fill"></i>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="row mb-4">
+
+  <div class="col-md-4">
+
+    <div class="mini-insight-card">
+
+      <div>Approval Rate</div>
+
+      <h2>
+        {{
+          ((approvedCount / totalCount) * 100)
+          .toFixed(0)
+        }}%
+      </h2>
+
+    </div>
+
+  </div>
+
+  <div class="col-md-4">
+
+    <div class="mini-insight-card">
+
+      <div>Rejected Rate</div>
+
+      <h2>
+        {{
+          ((rejectedCount / totalCount) * 100)
+          .toFixed(0)
+        }}%
+      </h2>
+
+    </div>
+
+  </div>
+
+  <div class="col-md-4">
+
+    <div class="mini-insight-card">
+
+      <div>Total Requests</div>
+
+      <h2>{{ totalCount }}</h2>
+
+    </div>
+
+  </div>
+
+</div>
+
+  <div class="card shadow-sm">
+
+<div class="card-body">
+
+  <div class="row g-3 mb-4">
+
+    <div class="col-md-5">
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search visitor, department, purpose..."
+        [(ngModel)]="searchText"
+        (input)="search()">
+
+    </div>
+
+    <div class="col-md-3">
+
+  <div class="input-group">
+
+    <input
+      type="date"
+      class="form-control"
+      [(ngModel)]="selectedApprovalDate"
+      (change)="applyFilters()">
+
+    <button
+      class="btn btn-outline-secondary"
+      type="button"
+      (click)="clearDateFilter()">
+
+      Clear
+
+    </button>
+
+  </div>
+
+</div>
+
+    <div class="col-md-3">
+
+      <select
+        class="form-select"
+        [(ngModel)]="selectedStatus"
+        (change)="applyFilters()">
+
+        <option value="all">
+          All Statuses
+        </option>
+
+        <option value="Pending">
+          Pending
+        </option>
+
+        <option value="Approved">
+          Approved
+        </option>
+
+        <option value="Rejected">
+          Rejected
+        </option>
+
+      </select>
+
+    </div>
+<div class="col-md-3">
+
+  <select
+    class="form-select"
+    [(ngModel)]="sortOrder"
+    (change)="applyFilters()">
+
+    <option value="recent">
+      Most Recent First
+    </option>
+
+    <option value="oldest">
+      Oldest First
+    </option>
+
+  </select>
+
+</div>
+
+    <div class="col-md-2">
+
+      <select
+        class="form-select"
+        [(ngModel)]="pageSize"
+        (change)="changePageSize()">
+
+        <option [ngValue]="10">10</option>
+        <option [ngValue]="25">25</option>
+        <option [ngValue]="50">50</option>
+        <option [ngValue]="100">100</option>
+
+      </select>
+
+    </div>
+
+    <div class="col-md-2 text-end">
+
+      <span class="badge bg-primary fs-6">
+
+        {{ filteredVisits.length }}
+
+      </span>
+
+    </div>
+
+  </div>
+
+  <div
+    *ngIf="paginatedVisits.length > 0"
+    class="table-responsive">
+
+    <table class="table table-hover align-middle">
+
+      <thead class="table-light">
+
+        <tr>
+
+          <th>Visit ID</th>
+          <th>Visitor</th>
+          <th>Department</th>
+          <th>Purpose</th>
+          <th>Status</th>
+          <th width="320">
+            Actions
+          </th>
+
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr
+          *ngFor="
+            let visit
+            of paginatedVisits
+          ">
+
+          <td>
+
+            {{ visit.visitId }}
+
+          </td>
+
+          <td>
+
+            {{ visit.visitorFullName }}
+
+          </td>
+
+          <td>
+
+            {{ visit.departmentName }}
+
+          </td>
+
+          <td>
+
+            {{ visit.purpose }}
+
+          </td>
+
+          <td>
+
+            <span
+              *ngIf="
+                visit.approvalStatus ===
+                'Approved'
+              "
+              class="badge bg-success">
+
+              Approved
+
+            </span>
+
+            <span
+              *ngIf="
+                visit.approvalStatus ===
+                'Pending'
+              "
+              class="badge bg-warning text-dark">
+
+              Pending
+
+            </span>
+
+            <span
+              *ngIf="
+                visit.approvalStatus ===
+                'Rejected'
+              "
+              class="badge bg-danger">
+
+              Rejected
+
+            </span>
+
+          </td>
+
+          <td>
+
+            <button
+              *ngIf="
+                visit.approvalStatus ===
+                'Pending'
+              "
+              class="btn btn-success btn-sm me-2 mb-1"
+              (click)="approve(visit)">
+
+              Approve
+
+            </button>
+
+            <button
+              *ngIf="
+                visit.approvalStatus ===
+                'Pending'
+              "
+              class="btn btn-danger btn-sm me-2 mb-1"
+              (click)="reject(visit)">
+
+              Reject
+
+            </button>
+
+            <button
+              *ngIf="
+                visit.approvalStatus ===
+                'Approved'
+                ||
+                visit.approvalStatus ===
+                'Rejected'
+              "
+              class="btn btn-warning btn-sm me-2 mb-1"
+              (click)="reset(visit)">
+
+              Revert
+
+            </button>
+
+            <button
+              class="btn btn-info btn-sm mb-1"
+              [routerLink]="[
+                '/approvals/history',
+                visit.visitId
+              ]">
+
+              History
+
+            </button>
+
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+  <div
+    *ngIf="
+      paginatedVisits.length === 0
+    "
+    class="text-center py-5">
+
+    <h4>
+
+      📭 No Approval Requests Found
+
+    </h4>
+
+    <p class="text-muted">
+
+      Try changing filters or
+      search terms.
+
+    </p>
+
+  </div>
+
+  <div
+    class="d-flex
+           justify-content-between
+           align-items-center
+           mt-4">
+
+    <button
+      class="btn btn-outline-secondary"
+      (click)="changePage(
+        currentPage - 1
+      )">
+
+      Previous
+
+    </button>
+
+    <div>
+
+      Page
+      {{ currentPage }}
+      of
+      {{ totalPages }}
+
+    </div>
+
+    <button
+      class="btn btn-outline-secondary"
+      (click)="changePage(
+        currentPage + 1
+      )">
+
+      Next
+
+    </button>
+
+  </div>
+
+</div>
+
+
+  </div>
+
+</div>

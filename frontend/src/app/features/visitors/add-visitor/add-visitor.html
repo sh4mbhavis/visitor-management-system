@@ -1,121 +1,217 @@
 <div class="container-fluid">
 
+  <div class="d-flex justify-content-between align-items-center mb-4">
+
+
+<div>
+  <h2 class="mb-0">Add Visitor</h2>
+  <small class="text-muted">
+    Register a new visitor
+  </small>
+</div>
+
+<button
+  type="button"
+  class="btn btn-outline-secondary"
+  (click)="goBack()">
+
+  ← Back
+
+</button>
+
+
+  </div>
+
   <div class="card shadow-sm">
 
-    <div class="card-header">
-      <h3>Add Visitor</h3>
+
+<div class="card-body">
+
+  <form
+    [formGroup]="visitorForm"
+    (ngSubmit)="onSubmit()">
+
+    <div class="row">
+
+      <div class="col-md-6 mb-3">
+
+        <label class="form-label">
+          Full Name *
+        </label>
+
+        <input
+          type="text"
+          class="form-control"
+          formControlName="fullName">
+
+        <div
+          class="text-danger mt-1"
+          *ngIf="
+            visitorForm.get('fullName')?.touched &&
+            visitorForm.get('fullName')?.invalid
+          ">
+
+          Full Name is required
+
+        </div>
+
+      </div>
+
+      <div class="col-md-6 mb-3">
+
+        <label class="form-label">
+          Mobile *
+        </label>
+
+        <input
+          type="text"
+          class="form-control"
+          formControlName="mobile">
+
+        <div
+          class="text-danger mt-1"
+          *ngIf="
+            visitorForm.get('mobile')?.touched &&
+            visitorForm.get('mobile')?.invalid
+          ">
+
+          Enter valid mobile number
+
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="card-body">
+    <div class="row">
 
-      <form
-        [formGroup]="visitorForm"
-        (ngSubmit)="onSubmit()">
+      <div class="col-md-6 mb-3">
 
-        <div class="mb-3">
-          <label class="form-label">
-            Full Name
-          </label>
+        <label class="form-label">
+          Email
+        </label>
 
-          <input
-            type="text"
-            class="form-control"
-            formControlName="fullName">
+        <input
+          type="email"
+          class="form-control"
+          formControlName="email">
+
+        <div
+          class="text-danger mt-1"
+          *ngIf="
+            visitorForm.get('email')?.touched &&
+            visitorForm.get('email')?.invalid
+          ">
+
+          Enter valid email address
+
         </div>
 
-        <div class="mb-3">
-          <label class="form-label">
-            Mobile
-          </label>
+      </div>
 
-          <input
-            type="text"
-            class="form-control"
-            formControlName="mobile">
-        </div>
+      <div class="col-md-6 mb-3">
 
-        <div class="mb-3">
-          <label class="form-label">
-            Email
-          </label>
+        <label class="form-label">
+          Gender
+        </label>
 
-          <input
-            type="email"
-            class="form-control"
-            formControlName="email">
-        </div>
+        <select
+          class="form-select"
+          formControlName="gender">
 
-        <div class="mb-3">
-          <label class="form-label">
-            Gender
-          </label>
+          <option value="">
+            Select Gender
+          </option>
 
-          <select
-            class="form-select"
-            formControlName="gender">
+          <option value="Male">
+            Male
+          </option>
 
-            <option value="">
-              Select Gender
-            </option>
+          <option value="Female">
+            Female
+          </option>
 
-            <option value="Male">
-              Male
-            </option>
+          <option value="Other">
+            Other
+          </option>
 
-            <option value="Female">
-              Female
-            </option>
+        </select>
 
-            <option value="Other">
-              Other
-            </option>
-
-          </select>
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label">
-            Address
-          </label>
-
-          <textarea
-            rows="3"
-            class="form-control"
-            formControlName="address">
-          </textarea>
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label">
-            ID Proof Type
-          </label>
-
-          <input
-            type="text"
-            class="form-control"
-            formControlName="idProofType">
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label">
-            ID Proof Number
-          </label>
-
-          <input
-            type="text"
-            class="form-control"
-            formControlName="idProofNumber">
-        </div>
-
-        <button
-          type="submit"
-          class="btn btn-primary">
-          Save Visitor
-        </button>
-
-      </form>
+      </div>
 
     </div>
+
+    <div class="mb-3">
+
+      <label class="form-label">
+        Address
+      </label>
+
+      <textarea
+        rows="3"
+        class="form-control"
+        formControlName="address">
+      </textarea>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-md-6 mb-3">
+
+        <label class="form-label">
+          ID Proof Type
+        </label>
+
+        <input
+          type="text"
+          class="form-control"
+          formControlName="idProofType">
+
+      </div>
+
+      <div class="col-md-6 mb-3">
+
+        <label class="form-label">
+          ID Proof Number
+        </label>
+
+        <input
+          type="text"
+          class="form-control"
+          formControlName="idProofNumber">
+
+      </div>
+
+    </div>
+
+    <hr>
+
+    <div class="d-flex gap-2">
+
+      <button
+        type="submit"
+        class="btn btn-primary">
+
+        Save Visitor
+
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-secondary"
+        routerLink="/visitors">
+
+        Cancel
+
+      </button>
+
+    </div>
+
+  </form>
+
+</div>
+
 
   </div>
 

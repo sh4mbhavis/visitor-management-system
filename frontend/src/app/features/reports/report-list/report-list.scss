@@ -1,0 +1,94 @@
+.kpi-card {
+  border-radius: 14px;
+  transition: 0.3s;
+  overflow: hidden;
+}
+
+.kpi-card:hover {
+  transform: translateY(-3px);
+}
+
+.approved-card {
+  border-top: 5px solid #10b981;
+}
+
+.rejected-card {
+  border-top: 5px solid #ef4444;
+}
+
+.pending-card {
+  border-top: 5px solid #f59e0b;
+}
+
+.kpi-label {
+  font-size: 0.95rem;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.kpi-number {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.dark-theme .kpi-number {
+  color: #ffffff !important;
+}
+
+.dark-theme .kpi-label {
+  color: #cbd5e1 !important;
+}
+
+.kpi-card {
+  border-radius: 14px;
+}
+
+.approved-card {
+  border-top: 4px solid #10b981 !important;
+}
+
+.rejected-card {
+  border-top: 4px solid #ef4444 !important;
+}
+
+.pending-card {
+  border-top: 4px solid #f59e0b !important;
+}
+
+.dark-theme .kpi-card {
+  color: white !important;
+}
+
+.dark-theme .kpi-card * {
+  color: white !important;
+}
+
+.dark-theme .approved-card .kpi-number {
+  color: #10b981 !important;
+}
+
+.dark-theme .rejected-card .kpi-number {
+  color: #ef4444 !important;
+}
+
+.dark-theme .pending-card .kpi-number {
+  color: #f59e0b !important;
+}
+
+.kpi-number {
+  font-size: 2.8rem !important;
+  font-weight: 700 !important;
+}
+
+.approved-card .kpi-number {
+  color: #10b981 !important;
+}
+
+.rejected-card .kpi-number {
+  color: #ef4444 !important;
+}
+
+.pending-card .kpi-number {
+  color: #f59e0b !important;
+}

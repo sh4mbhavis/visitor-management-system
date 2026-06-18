@@ -1,1 +1,536 @@
-<p>report-list works!</p>
+
+<div class="container-fluid p-4">
+
+  <h2 class="mb-4">
+    Reports Dashboard
+  </h2>
+
+   <!-- Approval Summary -->
+
+  <div
+    class="row g-3 mb-4"
+    *ngIf="approvalSummary">
+
+    <div class="col-md-4">
+
+   <div class="card shadow-sm border-0 kpi-card approved-card">
+
+        <div class="card-body">
+
+  <div class="kpi-label">
+  Approved
+</div>
+
+<div class="kpi-number">
+  {{ approvalSummary.approved }}
+</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+      <div class="card shadow-sm border-0 kpi-card rejected-card">
+
+        <div class="card-body">
+
+          <div class="kpi-label">
+            Rejected
+          </div>
+
+          <div class="kpi-number">
+            {{ approvalSummary.rejected }}
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+    <div class="card shadow-sm border-0 kpi-card pending-card">
+
+        <div class="card-body">
+
+          <div class="kpi-label">
+            Pending
+          </div>
+
+          <div class="kpi-number">
+            {{ approvalSummary.pending }}
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+<div class="row g-4 mb-4">
+
+  <div class="col-md-6">
+
+    <div class="card shadow-sm border-0">
+
+      <div class="card-header">
+        Approval Status Chart
+      </div>
+
+      <div class="card-body">
+
+       <div style="height: 300px;">
+  <canvas id="approvalChart"></canvas>
+</div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="col-md-6">
+
+    <div class="card shadow-sm border-0">
+
+      <div class="card-header">
+        Department Visits Chart
+      </div>
+
+      <div class="card-body">
+
+       <div style="height: 300px;">
+  <canvas id="departmentChart"></canvas>
+</div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+ 
+  <!-- Department Report -->
+
+  <div class="card shadow-sm border-0 mb-4">
+
+    <div class="card-header">
+      Department Report
+    </div>
+
+    <div class="card-body">
+
+      <table class="table table-hover">
+
+        <thead>
+
+          <tr>
+
+            <th>Department</th>
+
+            <th>Total Visits</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr
+            *ngFor="
+              let department
+              of departmentReport
+            ">
+
+            <td>
+              {{ department.departmentName }}
+            </td>
+
+            <td>
+              {{ department.totalVisits }}
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+  <!-- Daily Report -->
+
+  <div class="card mb-4">
+
+    <div class="card-header">
+      Daily Report
+    </div>
+
+    <div class="card-body">
+
+      <input
+        type="date"
+        [(ngModel)]="reportDate"
+        class="form-control mb-3">
+
+      <button
+        class="btn btn-primary"
+        (click)="loadDailyReport()">
+
+        Load Daily Report
+
+      </button>
+
+      <button
+  class="btn btn-secondary ms-2"
+  (click)="dailyReport = null">
+
+  Clear
+
+</button>
+
+      <div
+        *ngIf="dailyReport"
+        class="mt-3">
+
+        <p>
+          Total Visitors:
+          {{ dailyReport.totalVisitors }}
+        </p>
+
+        <p>
+          Total Visits:
+          {{ dailyReport.totalVisits }}
+        </p>
+
+        <p>
+          Approved:
+          {{ dailyReport.approvedVisits }}
+        </p>
+
+        <p>
+          Rejected:
+          {{ dailyReport.rejectedVisits }}
+        </p>
+
+        <p>
+          Active:
+          {{ dailyReport.activeVisits }}
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Monthly Report -->
+
+  <div class="card mb-4">
+
+    <div class="card-header">
+      Monthly Report
+    </div>
+
+    <div class="card-body">
+
+      <input
+        type="number"
+        [(ngModel)]="year"
+        class="form-control mb-2"
+        placeholder="Year">
+
+      <input
+        type="number"
+        [(ngModel)]="month"
+        class="form-control mb-3"
+        placeholder="Month">
+
+      <button
+        class="btn btn-success"
+        (click)="loadMonthlyReport()">
+
+        Load Monthly Report
+
+      </button>
+    <button
+  class="btn btn-secondary ms-2"
+  (click)="monthlyReport = null">
+
+  Clear
+
+</button>
+
+      <div
+        *ngIf="monthlyReport"
+        class="mt-3">
+
+        <p>
+          Total Visitors:
+          {{ monthlyReport.totalVisitors }}
+        </p>
+
+        <p>
+          Total Visits:
+          {{ monthlyReport.totalVisits }}
+        </p>
+
+        <p>
+          Approved:
+          {{ monthlyReport.approvedVisits }}
+        </p>
+
+        <p>
+          Rejected:
+          {{ monthlyReport.rejectedVisits }}
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Date Range Report -->
+
+  <div class="card mb-4">
+
+    <div class="card-header">
+      Date Range Report
+    </div>
+
+    <div class="card-body">
+
+      <div class="row">
+
+        <div class="col-md-5">
+
+          <input
+            type="date"
+            [(ngModel)]="fromDate"
+            class="form-control">
+
+        </div>
+
+        <div class="col-md-5">
+
+          <input
+            type="date"
+            [(ngModel)]="toDate"
+            class="form-control">
+
+        </div>
+
+        <div class="col-md-2">
+
+          <button
+            class="btn btn-primary w-100"
+            (click)="loadDateRangeReport()">
+
+            Generate
+
+          </button>
+
+          <button
+  class="btn btn-secondary ms-2"
+  (click)="dateRangeReport = null">
+
+  Clear
+
+</button>
+
+        </div>
+
+      </div>
+
+      <div
+        *ngIf="dateRangeReport"
+        class="mt-3">
+
+        <p>
+          Total Visitors:
+          {{ dateRangeReport.totalVisitors }}
+        </p>
+
+        <p>
+          Total Visits:
+          {{ dateRangeReport.totalVisits }}
+        </p>
+
+        <p>
+          Approved:
+          {{ dateRangeReport.approvedVisits }}
+        </p>
+
+        <p>
+          Rejected:
+          {{ dateRangeReport.rejectedVisits }}
+        </p>
+
+        <p>
+          Active:
+          {{ dateRangeReport.activeVisits }}
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Visitor History -->
+
+<div class="card">
+
+  <div class="card-header">
+    Visitor History
+  </div>
+
+  <div class="card-body">
+
+    <label class="form-label">
+
+      Visitor Name
+
+    </label>
+
+   <div class="position-relative">
+
+  <input
+    type="text"
+    [(ngModel)]="visitorName"
+    (input)="searchVisitors()"
+    (keyup.enter)="loadVisitorHistory()"
+    class="form-control"
+    placeholder="Enter visitor name">
+
+  <ul
+    *ngIf="visitorSuggestions.length > 0"
+    class="list-group position-absolute w-100 shadow"
+    style="z-index: 1000;">
+
+    <li
+      *ngFor="let visitor of visitorSuggestions"
+      class="list-group-item list-group-item-action"
+      (click)="selectVisitor(visitor)">
+
+      {{ visitor.fullName }}
+
+    </li>
+
+  </ul>
+
+</div>
+
+    <small class="text-muted">
+
+      Example: Rahul, Amit, Sharma
+
+    </small>
+
+    <br>
+    <br>
+
+   <button
+  class="btn btn-warning"
+  (click)="loadVisitorHistory()">
+
+  Search History
+
+</button>
+
+<button
+  class="btn btn-secondary ms-2"
+  (click)="clearVisitorHistory()">
+
+  Clear
+
+</button>
+
+<div
+  *ngIf="visitorHistory.length > 0"
+  class="alert alert-success">
+
+  {{ visitorHistory.length }}
+  record(s) found.
+
+</div>
+    <table
+      *ngIf="visitorHistory.length"
+      class="table table-hover mt-3">
+
+      <thead>
+
+        <tr>
+
+          <th>Visit Id</th>
+
+          <th>Visitor</th>
+
+          <th>Host</th>
+
+          <th>Department</th>
+
+          <th>Status</th>
+
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr
+          *ngFor="
+            let visit
+            of visitorHistory
+          ">
+
+          <td>
+            {{ visit.visitId }}
+          </td>
+
+          <td>
+            {{ visit.visitorName }}
+          </td>
+
+          <td>
+            {{ visit.hostName }}
+          </td>
+
+          <td>
+            {{ visit.departmentName }}
+          </td>
+
+          <td>
+            {{ visit.approvalStatus }}
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+    <div
+  *ngIf="
+    searchedVisitor &&
+    visitorHistory.length === 0
+  "
+  class="alert alert-warning mt-3">
+
+  No records available.
+
+</div>
+
+  </div>
+
+</div>

@@ -1,0 +1,106 @@
+<div class="container">
+
+  <div class="card shadow">
+
+    <div class="card-header">
+      <h3>Edit User</h3>
+
+      <button
+  class="btn btn-outline-secondary mb-3"
+  (click)="goBack()">
+
+  <i class="bi bi-arrow-left"></i>
+  Back
+
+</button>
+    </div>
+
+    <div class="card-body">
+
+      <form
+        [formGroup]="userForm"
+        (ngSubmit)="onSubmit()">
+
+        <div class="mb-3">
+          <label class="form-label">
+            Full Name
+          </label>
+
+          <input
+            type="text"
+            class="form-control"
+            formControlName="fullName">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">
+            Email
+          </label>
+
+          <input
+            type="email"
+            class="form-control"
+            formControlName="email">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">
+            Mobile
+          </label>
+
+          <input
+            type="text"
+            class="form-control"
+            formControlName="mobile">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">
+            Role Id
+          </label>
+
+          <input
+            type="number"
+            class="form-control"
+            formControlName="roleId">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">
+            Department Id
+          </label>
+
+          <input
+            type="number"
+            class="form-control"
+            formControlName="departmentId">
+        </div>
+
+        <div class="form-check mb-3">
+
+          <input
+            type="checkbox"
+            class="form-check-input"
+            formControlName="isActive">
+
+          <label class="form-check-label">
+            Active
+          </label>
+
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-primary">
+
+          Update User
+
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>

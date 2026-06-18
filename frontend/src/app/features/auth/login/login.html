@@ -4,10 +4,36 @@
       <div class="card shadow">
         <div class="card-body p-4">
 
-```
+
       <h2 class="text-center mb-4">
         Visitor Management System
       </h2>
+
+      <div class="btn-group w-100 mb-4">
+
+  <button
+    type="button"
+    class="btn"
+    [class.btn-primary]="loginType === 'staff'"
+    [class.btn-outline-primary]="loginType !== 'staff'"
+    (click)="loginType = 'staff'">
+
+    Staff Login
+
+  </button>
+
+  <button
+    type="button"
+    class="btn"
+    [class.btn-success]="loginType === 'visitor'"
+    [class.btn-outline-success]="loginType !== 'visitor'"
+    (click)="loginType = 'visitor'">
+
+    Visitor Login
+
+  </button>
+
+</div>
 
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
@@ -48,7 +74,7 @@
     </div>
   </div>
 </div>
-```
+
 
   </div>
 </div>

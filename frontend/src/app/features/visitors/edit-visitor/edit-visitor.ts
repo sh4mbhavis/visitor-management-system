@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-
+import { ActivatedRoute, Router} from '@angular/router';
+import { Location } from '@angular/common';
 import { VisitorService } from '../../../core/services/visitor.service';
 
 @Component({
@@ -22,14 +22,25 @@ export class EditVisitorComponent implements OnInit {
     private readonly fb: FormBuilder,
     private readonly route: ActivatedRoute,
     private readonly router: Router,
-    private readonly visitorService: VisitorService
+    private readonly visitorService: VisitorService,
+   private readonly location: Location,
   ) {
 
     this.visitorForm = this.fb.group({
       visitorId: [0],
       fullName: ['', Validators.required],
-      mobile: ['', Validators.required],
-      email: [''],
+     mobile: [
+  '',
+  [
+    Validators.required,
+    Validators.pattern(/^[0-9]{10}$/)
+  ]
+],
+
+email: [
+  '',
+  Validators.email
+],
       gender: [''],
       address: [''],
       idProofType: [''],
@@ -80,4 +91,10 @@ export class EditVisitorComponent implements OnInit {
       });
 
   }
+
+   goBack(): void {
+
+  this.location.back();
+
+}
 }
